@@ -7,9 +7,12 @@
 //
 
 import UIKit
-
+import ACEDrawingView
 class PaintController: UIViewController {
 
+    
+    @IBOutlet var drawingView: ACEDrawingView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,11 @@ class PaintController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func Reset(sender: AnyObject) {
+        drawingView.clear()
+        
+    }
 
     /*
     // MARK: - Navigation
