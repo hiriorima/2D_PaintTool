@@ -1,5 +1,5 @@
 //
-//  View2Controller.swift
+//  PaintController.swift
 //  2D_PaintTool
 //
 //  Created by 蛯名真紀 on 2015/10/30.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class View2Controller: UIViewController {
+class PaintController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
