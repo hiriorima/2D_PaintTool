@@ -1,0 +1,6 @@
+framework module Pods_2D_PaintToolTests {
+  umbrella header "Pods-2D_PaintToolTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
