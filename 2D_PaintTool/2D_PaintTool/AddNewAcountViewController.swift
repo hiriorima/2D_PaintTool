@@ -9,14 +9,12 @@
 import UIKit
 
 class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScrollViewDelegate {
-
-    
-    @IBOutlet var IDInputField: UITextField!
+ @IBOutlet var IDInputField: UITextField!
     @IBOutlet var PWInputField: UITextField!
     @IBOutlet var PWReinputField: UITextField!
     @IBOutlet var sc: UIScrollView!
     
-    var txtActiveField = UITextField()
+    private var txtActiveField = UITextField()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,22 +40,46 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     @IBAction func TextFieldEditingDidBegin(sender: UITextField) {
         txtActiveField = sender
         if(sender == IDInputField){
-            if(sender.text! == "IDを入力してください"){
+            if(sender.text! == "IDを入力してください(英数字3~10字)"){
             sender.text = ""
         }
         }else if(sender == PWInputField){
             sender.secureTextEntry = true
-        if(sender.text! == "パスワードを入力してください"){
+        if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
             sender.text = ""
         }
         }else if(sender == PWReinputField){
             sender.secureTextEntry = true
-            if(sender.text! == "パスワードをもう一度入力してください"){
+            if(sender.text! == "パスワードをもう一度入力してください(英数字4~8字)"){
                 sender.text = ""
             }
         }
     }
     
+    /*
+    テキストが編集された際に呼ばれる.
+    */
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        var maxLength: Int = 0
+        
+        // 文字数最大を決める.
+        if(textField == IDInputField){
+            maxLength = 11
+        }else if(textField == PWInputField || textField == PWReinputField){
+         maxLength = 9
+        }
+        
+        // 入力済みの文字と入力された文字を合わせて取得.
+        var str = textField.text! + string
+        
+        // 文字数がmaxLength以下ならtrueを返す.
+        if str.characters.count < maxLength {
+            return true
+        }
+        
+        return false
+    }
     
     /*
     編集終了時の処理
@@ -68,20 +90,19 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     @IBAction func TextFieldEditingDidEnd(sender: UITextField) {
         if(sender == IDInputField){
             if(sender.text! == ""){
-                sender.text = "IDを入力してください"
+                sender.text = "IDを入力してください(英数字3~10字)"
             }
         }else if(sender == PWInputField){
-            sender.secureTextEntry = false
             if(sender.text! == ""){
-                sender.text = "パスワードを入力してください"
+                sender.secureTextEntry = false
+                sender.text = "パスワードを入力してください(英数字4~8字)"
             }
         }else if(sender == PWReinputField){
-            sender.secureTextEntry = false
             if(sender.text! == ""){
-                sender.text = "パスワードをもう一度入力してください"
+                sender.secureTextEntry = false
+                sender.text = "パスワードをもう一度入力してください(英数字4~8字)"
             }
         }
-
     }
   
     /*
@@ -127,6 +148,8 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     func handleKeyboardWillHideNotification(notification: NSNotification) {
         sc.contentOffset.y = 0
     }
+   
+    
     /*
     // MARK: - Navigation
 

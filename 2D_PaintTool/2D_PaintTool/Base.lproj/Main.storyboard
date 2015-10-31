@@ -53,58 +53,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-hX-sVB">
-                                <rect key="frame" x="300" y="416" width="424" height="30"/>
-                                <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="IDInputFieldEditingDidBegin:" destination="hJF-PQ-avJ" eventType="editingDidEnd" id="KAm-Ze-pXK"/>
-                                    <action selector="IDInputFieldTouchDown:" destination="hJF-PQ-avJ" eventType="touchDown" id="D1o-5I-f7L"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-BV-t7L">
-                                <rect key="frame" x="300" y="500" width="424" height="30"/>
-                                <color key="backgroundColor" red="0.84211253156565657" green="0.84211253156565657" blue="0.84211253156565657" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="PWInputFieldEditingDidBegin:" destination="hJF-PQ-avJ" eventType="editingDidEnd" id="UUZ-7P-cyB"/>
-                                    <action selector="PWInputFieldTouchDown:" destination="hJF-PQ-avJ" eventType="touchDown" id="ZZR-d9-lFf"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-lV-Vom">
-                                <rect key="frame" x="445" y="583" width="135" height="62"/>
-                                <state key="normal" title="Button" image="login.png"/>
-                                <connections>
-                                    <segue destination="jKV-lk-Tye" kind="showDetail" id="kN9-yW-Ift"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-Lk-j34">
-                                <rect key="frame" x="488" y="352" width="48" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-fz-Bvf">
-                                <rect key="frame" x="354" y="698" width="316" height="30"/>
-                                <state key="normal" title="アカウントを作っていない方はこちらから"/>
-                                <connections>
-                                    <segue destination="CjE-m5-YTo" kind="show" id="6oX-XY-AHl"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Cd-GT-tpf">
-                                <rect key="frame" x="401" y="96" width="222" height="222"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XtC-jH-eRP">
+                                <rect key="frame" x="224" y="0.0" width="576" height="768"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください(英数字3~10字)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-hX-sVB">
+                                        <rect key="frame" x="76" y="384" width="424" height="30"/>
+                                        <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="TextFieldEditingDidBegin:" destination="hJF-PQ-avJ" eventType="editingDidBegin" id="o2R-a7-ToB"/>
+                                            <action selector="TextFieldEditingDidEnd:" destination="hJF-PQ-avJ" eventType="editingDidEnd" id="8Ot-1m-LJP"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードを入力してください(英数字4~8字)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qbs-BV-t7L">
+                                        <rect key="frame" x="76" y="471" width="424" height="30"/>
+                                        <color key="backgroundColor" red="0.84211253156565657" green="0.84211253156565657" blue="0.84211253156565657" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="TextFieldEditingDidBegin:" destination="hJF-PQ-avJ" eventType="editingDidBegin" id="8yx-fr-TDF"/>
+                                            <action selector="TextFieldEditingDidEnd:" destination="hJF-PQ-avJ" eventType="editingDidEnd" id="8Jp-ca-LJL"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-Lk-j34">
+                                        <rect key="frame" x="264" y="309" width="48" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-fz-Bvf">
+                                        <rect key="frame" x="129" y="669" width="316" height="30"/>
+                                        <state key="normal" title="アカウントを作っていない方はこちらから"/>
+                                        <connections>
+                                            <segue destination="CjE-m5-YTo" kind="show" id="6oX-XY-AHl"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Cd-GT-tpf">
+                                        <rect key="frame" x="177" y="79" width="222" height="222"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-lV-Vom">
+                                        <rect key="frame" x="221" y="565" width="135" height="62"/>
+                                        <state key="normal" title="Button" image="login.png"/>
+                                        <connections>
+                                            <segue destination="jKV-lk-Tye" kind="showDetail" id="kN9-yW-Ift"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="sQE-h2-vfj" appends="YES" id="ybl-9c-bY3"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="IDInputField" destination="dxg-hX-sVB" id="abp-hM-v4t"/>
+                        <outlet property="PWInputField" destination="Qbs-BV-t7L" id="dRC-YI-C9z"/>
+                        <outlet property="sc" destination="XtC-jH-eRP" id="7KB-eW-NYL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B32-Zv-4F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sQE-h2-vfj">
+                    <connections>
+                        <action selector="TapScreen:" destination="hJF-PQ-avJ" id="v6i-Vc-oG7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1258" y="1717"/>
+            <point key="canvasLocation" x="-1439" y="1717"/>
         </scene>
         <!--Paint Controller-->
         <scene sceneID="nSC-j2-QvN">
@@ -161,31 +181,21 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8g-zR-qQH">
                                 <rect key="frame" x="225" y="0.0" width="576" height="768"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-Hp-lvr">
-                                        <rect key="frame" x="76" y="362" width="424" height="30"/>
-                                        <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="TextFieldEditingDidBegin:" destination="CjE-m5-YTo" eventType="editingDidBegin" id="puw-c6-RgR"/>
-                                            <action selector="TextFieldEditingDidEnd:" destination="CjE-m5-YTo" eventType="editingDidEnd" id="ze1-HS-psR"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDS-3k-pWz">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードを入力してください(英数字4~8字)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MDS-3k-pWz">
                                         <rect key="frame" x="76" y="451" width="424" height="30"/>
                                         <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="TextFieldEditingDidBegin:" destination="CjE-m5-YTo" eventType="editingDidBegin" id="vSC-dx-H4V"/>
                                             <action selector="TextFieldEditingDidEnd:" destination="CjE-m5-YTo" eventType="editingDidEnd" id="Yas-8o-GNb"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードをもう一度入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5M-F0-xS1">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードをもう一度入力してください(英数字4~8字)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5M-F0-xS1">
                                         <rect key="frame" x="76" y="538" width="424" height="30"/>
                                         <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="TextFieldEditingDidBegin:" destination="CjE-m5-YTo" eventType="editingDidBegin" id="lZk-rE-BGx"/>
                                             <action selector="TextFieldEditingDidEnd:" destination="CjE-m5-YTo" eventType="editingDidEnd" id="zwS-8S-kkc"/>
@@ -194,6 +204,12 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newAccount.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Uv-tL-82p">
                                         <rect key="frame" x="177" y="87" width="222" height="222"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBQ-wh-cJY">
+                                        <rect key="frame" x="264" y="317" width="48" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhS-yU-CYi">
                                         <rect key="frame" x="163" y="620" width="250" height="62"/>
                                         <state key="normal" title="Button" image="createAccountButton.png"/>
@@ -201,12 +217,16 @@
                                             <segue destination="hJF-PQ-avJ" kind="showDetail" id="ESg-Ka-t7l"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBQ-wh-cJY">
-                                        <rect key="frame" x="264" y="317" width="48" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください(英数字3~10字)" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-Hp-lvr">
+                                        <rect key="frame" x="76" y="362" width="424" height="30"/>
+                                        <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="TextFieldEditingDidBegin:" destination="CjE-m5-YTo" eventType="editingDidBegin" id="puw-c6-RgR"/>
+                                            <action selector="TextFieldEditingDidEnd:" destination="CjE-m5-YTo" eventType="editingDidEnd" id="ze1-HS-psR"/>
+                                        </connections>
+                                    </textField>
                                 </subviews>
                             </scrollView>
                         </subviews>
