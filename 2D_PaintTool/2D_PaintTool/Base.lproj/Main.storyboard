@@ -39,7 +39,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-734" y="746"/>
+            <point key="canvasLocation" x="-630" y="-214"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="qzc-C1-six">
@@ -124,27 +124,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1439" y="1717"/>
-        </scene>
-        <!--Paint Controller-->
-        <scene sceneID="nSC-j2-QvN">
-            <objects>
-                <viewController id="9Xv-0c-REN" customClass="PaintController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="O6f-bw-P0C"/>
-                        <viewControllerLayoutGuide type="bottom" id="aHl-hA-pny"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ghY-vP-39J">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GJU-gl-jFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-292" y="-170"/>
+            <point key="canvasLocation" x="-1335" y="757"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="06Q-3C-ZaU">
@@ -164,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ws-ob-EU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="1717"/>
+            <point key="canvasLocation" x="46" y="757"/>
         </scene>
         <!--Add New Acount View Controller-->
         <scene sceneID="9Z8-gH-bjc">
@@ -252,7 +232,106 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2524" y="1717"/>
+            <point key="canvasLocation" x="-2420" y="757"/>
+        </scene>
+        <!--Paint Controller-->
+        <scene sceneID="W53-J2-vK2">
+            <objects>
+                <viewController id="Eg8-QY-oje" customClass="PaintController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rgl-0d-td4"/>
+                        <viewControllerLayoutGuide type="bottom" id="9RY-py-cHj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zDh-IA-XeK">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FWM-V8-RCp" customClass="ACEDrawingView">
+                                <rect key="frame" x="178" y="113" width="668" height="542"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPl-Cl-OYZ">
+                                <rect key="frame" x="893" y="703" width="120" height="32"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Reset:" destination="Eg8-QY-oje" eventType="touchUpInside" id="29c-KT-fVf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAt-Ag-46X">
+                                <rect key="frame" x="79" y="487" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Eraser:" destination="Eg8-QY-oje" eventType="touchUpInside" id="ZMq-RW-rNf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKa-9R-B2g">
+                                <rect key="frame" x="930" y="40" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Undo:" destination="Eg8-QY-oje" eventType="touchUpInside" id="pZ0-5r-t5r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTK-dC-rUd">
+                                <rect key="frame" x="930" y="102" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Redo:" destination="Eg8-QY-oje" eventType="touchUpInside" id="dqH-hi-cV1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmv-aI-LVO">
+                                <rect key="frame" x="79" y="118" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Pen:" destination="Eg8-QY-oje" eventType="touchUpInside" id="3Sg-eC-3SB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMa-MW-JNy">
+                                <rect key="frame" x="79" y="585" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Text:" destination="Eg8-QY-oje" eventType="touchUpInside" id="qD9-zC-jr5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqc-os-tvw">
+                                <rect key="frame" x="79" y="218" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Line:" destination="Eg8-QY-oje" eventType="touchUpInside" id="aXl-W3-9M2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvC-fY-a8H">
+                                <rect key="frame" x="930" y="268" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width1:" destination="Eg8-QY-oje" eventType="touchUpInside" id="5bz-Wd-bJj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4y-vp-FRE">
+                                <rect key="frame" x="930" y="344" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width2:" destination="Eg8-QY-oje" eventType="touchUpInside" id="bDg-lF-eDW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRO-lg-dKD">
+                                <rect key="frame" x="930" y="419" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width3:" destination="Eg8-QY-oje" eventType="touchUpInside" id="rpT-rN-hxm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="drawingView" destination="FWM-V8-RCp" id="XhX-yC-4h8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E77-Wv-0t7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="1820"/>
         </scene>
     </scenes>
     <resources>
