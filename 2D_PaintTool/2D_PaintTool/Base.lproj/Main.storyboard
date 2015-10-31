@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< .merge_file_tMzZvg
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lAh-mq-XgJ">
+>>>>>>> .merge_file_h3u9TZ
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
@@ -15,6 +19,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< .merge_file_tMzZvg
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlk-ug-VhG">
                                 <rect key="frame" x="181" y="451" width="278" height="222"/>
@@ -31,11 +36,14 @@
                                 </connections>
                             </button>
                         </subviews>
+=======
+>>>>>>> .merge_file_h3u9TZ
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+<<<<<<< .merge_file_tMzZvg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,6 +124,8 @@
                         <outlet property="PWInputField" destination="Qbs-BV-t7L" id="dRC-YI-C9z"/>
                         <outlet property="sc" destination="XtC-jH-eRP" id="7KB-eW-NYL"/>
                     </connections>
+=======
+>>>>>>> .merge_file_h3u9TZ
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B32-Zv-4F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="sQE-h2-vfj">
@@ -124,7 +134,11 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+<<<<<<< .merge_file_tMzZvg
             <point key="canvasLocation" x="-1439" y="1717"/>
+=======
+            <point key="canvasLocation" x="168" y="408"/>
+>>>>>>> .merge_file_h3u9TZ
         </scene>
         <!--Paint Controller-->
         <scene sceneID="nSC-j2-QvN">
@@ -157,10 +171,104 @@
                     <view key="view" contentMode="scaleToFill" id="86R-Dl-b8y">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<<<<<<< .merge_file_tMzZvg
+=======
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-bu-98m" customClass="ACEDrawingView">
+                                <rect key="frame" x="178" y="113" width="668" height="542"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og1-W9-VdO">
+                                <rect key="frame" x="893" y="703" width="120" height="32"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Reset:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Nti-e1-wJa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-AA-PIA">
+                                <rect key="frame" x="79" y="487" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Eraser:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="ffG-g5-T9C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2n-VU-F0V">
+                                <rect key="frame" x="930" y="40" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Undo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="OFI-2p-eg8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq2-MB-Lbw">
+                                <rect key="frame" x="930" y="102" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Redo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="QQ1-Ox-nJ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMX-B0-N9Q">
+                                <rect key="frame" x="79" y="118" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Pen:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="0Vn-r3-hmf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-D5-rTG">
+                                <rect key="frame" x="79" y="585" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Text:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="s14-oS-TDq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-hA-KYY">
+                                <rect key="frame" x="79" y="218" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Line:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="GaV-Lc-gcn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veh-O2-UAT">
+                                <rect key="frame" x="930" y="268" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width1:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Eau-8g-eTM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLe-ht-oSf">
+                                <rect key="frame" x="930" y="344" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width2:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="mem-FP-2gj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-0Y-fOY">
+                                <rect key="frame" x="930" y="419" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="Width3:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="XJy-3z-whC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+>>>>>>> .merge_file_h3u9TZ
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="drawingView" destination="T9I-bu-98m" id="NXk-nF-a5x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ws-ob-EU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

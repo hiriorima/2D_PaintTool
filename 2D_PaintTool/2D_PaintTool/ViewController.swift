@@ -11,11 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+<<<<<<< HEAD
        
+=======
+        
+>>>>>>> 3716e1de7bee5f570be8f135435ed812dafb97a3
     }
 
     override func didReceiveMemoryWarning() {
