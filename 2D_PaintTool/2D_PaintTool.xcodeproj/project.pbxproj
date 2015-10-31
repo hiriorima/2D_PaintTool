@@ -14,6 +14,7 @@
 		0D8560F81BE3E68F00349B72 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8560F71BE3E68F00349B72 /* login.png */; settings = {ASSET_TAGS = (); }; };
 		0D8560FA1BE3E93500349B72 /* newAccount.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8560F91BE3E93500349B72 /* newAccount.png */; settings = {ASSET_TAGS = (); }; };
 		0D8560FC1BE3EA4D00349B72 /* createAccountButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8560FB1BE3EA4D00349B72 /* createAccountButton.png */; settings = {ASSET_TAGS = (); }; };
+		0DB9120E1BE4C6410081D3F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB9120D1BE4C6410081D3F2 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0DF5660B1BE3596C00D0EE2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5660A1BE3596C00D0EE2E /* AppDelegate.swift */; };
 		0DF5660D1BE3596C00D0EE2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5660C1BE3596C00D0EE2E /* ViewController.swift */; };
 		0DF566101BE3596C00D0EE2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF5660E1BE3596C00D0EE2E /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		0D8560F71BE3E68F00349B72 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login.png; path = ../../../../Desktop/images/images/login.png; sourceTree = "<group>"; };
 		0D8560F91BE3E93500349B72 /* newAccount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = newAccount.png; path = ../../../../Desktop/images/images/newAccount.png; sourceTree = "<group>"; };
 		0D8560FB1BE3EA4D00349B72 /* createAccountButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = createAccountButton.png; path = ../../../../Desktop/images/images/createAccountButton.png; sourceTree = "<group>"; };
+		0DB9120D1BE4C6410081D3F2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DF566071BE3596C00D0EE2E /* 2D_PaintTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2D_PaintTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF5660A1BE3596C00D0EE2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF5660C1BE3596C00D0EE2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				0D8560E41BE3E22A00349B72 /* Images */,
 				0DF5660A1BE3596C00D0EE2E /* AppDelegate.swift */,
 				0DF5660C1BE3596C00D0EE2E /* ViewController.swift */,
+				0DB9120D1BE4C6410081D3F2 /* LoginViewController.swift */,
 				20211B061BE39FEC0065E70F /* PaintController.swift */,
 				0DF5660E1BE3596C00D0EE2E /* Main.storyboard */,
 				0DF566111BE3596C00D0EE2E /* Assets.xcassets */,
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB9120E1BE4C6410081D3F2 /* LoginViewController.swift in Sources */,
 				20211B071BE39FEC0065E70F /* PaintController.swift in Sources */,
 				0DF5660D1BE3596C00D0EE2E /* ViewController.swift in Sources */,
 				0DF5660B1BE3596C00D0EE2E /* AppDelegate.swift in Sources */,

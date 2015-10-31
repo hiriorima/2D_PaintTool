@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-734" y="746"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="qzc-C1-six">
             <objects>
-                <viewController id="hJF-PQ-avJ" sceneMemberID="viewController">
+                <viewController id="hJF-PQ-avJ" customClass="LoginViewController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3k6-Il-pg5"/>
                         <viewControllerLayoutGuide type="bottom" id="Htw-i6-maQ"/>
@@ -53,10 +53,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqQ-26-Gke">
-                                <rect key="frame" x="401" y="91" width="222" height="222"/>
-                                <state key="normal" title="Button" image="member.png"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-hX-sVB">
                                 <rect key="frame" x="300" y="416" width="424" height="30"/>
                                 <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -72,12 +68,8 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-lV-Vom">
                                 <rect key="frame" x="445" y="583" width="135" height="62"/>
                                 <state key="normal" title="Button" image="login.png"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-fz-Bvf">
-                                <rect key="frame" x="354" y="698" width="316" height="30"/>
-                                <state key="normal" title="アカウントを作っていない方はこちらから"/>
                                 <connections>
-                                    <segue destination="CjE-m5-YTo" kind="show" id="6oX-XY-AHl"/>
+                                    <segue destination="jKV-lk-Tye" kind="showDetail" id="kN9-yW-Ift"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxc-Lk-j34">
@@ -86,6 +78,16 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-fz-Bvf">
+                                <rect key="frame" x="354" y="698" width="316" height="30"/>
+                                <state key="normal" title="アカウントを作っていない方はこちらから"/>
+                                <connections>
+                                    <segue destination="CjE-m5-YTo" kind="show" id="6oX-XY-AHl"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Cd-GT-tpf">
+                                <rect key="frame" x="401" y="96" width="222" height="222"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -94,7 +96,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B32-Zv-4F6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1370" y="1695"/>
+            <point key="canvasLocation" x="-1258" y="1717"/>
         </scene>
         <!--Paint Controller-->
         <scene sceneID="nSC-j2-QvN">
@@ -148,10 +150,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpb-r2-gxU">
-                                <rect key="frame" x="401" y="91" width="222" height="222"/>
-                                <state key="normal" title="Button" image="newAccount.png"/>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="IDを入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rhp-Hp-lvr">
                                 <rect key="frame" x="300" y="416" width="424" height="30"/>
                                 <color key="backgroundColor" red="0.84211253159999999" green="0.84211253159999999" blue="0.84211253159999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -167,6 +165,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VhS-yU-CYi">
                                 <rect key="frame" x="387" y="653" width="250" height="62"/>
                                 <state key="normal" title="Button" image="createAccountButton.png"/>
+                                <connections>
+                                    <segue destination="hJF-PQ-avJ" kind="showDetail" id="ESg-Ka-t7l"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="パスワードをもう一度入力してください" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a5M-F0-xS1">
                                 <rect key="frame" x="300" y="581" width="424" height="30"/>
@@ -180,6 +181,9 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newAccount.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Uv-tL-82p">
+                                <rect key="frame" x="401" y="91" width="222" height="222"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -188,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SYK-xV-MsK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2528" y="1681"/>
+            <point key="canvasLocation" x="-2524" y="1717"/>
         </scene>
     </scenes>
     <resources>
@@ -199,4 +203,8 @@
         <image name="member_small.png" width="174" height="174"/>
         <image name="newAccount.png" width="223" height="223"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kN9-yW-Ift"/>
+        <segue reference="ESg-Ka-t7l"/>
+    </inferredMetricsTieBreakers>
 </document>
