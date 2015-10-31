@@ -10,12 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var IDInputField: UITextField!
-    @IBOutlet var PWInputField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -24,25 +21,39 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     /*
-    UITextFieldが編集された直後に呼ばれるデリゲートメソッド.
+    テキストフィールドが編集された直後の処理
     */
-    func textFieldDidBeginEditing(textField: UITextField){
-        /*
-        ID入力フォームの処理
-        */
-        if(textField == IDInputField && textField.text! == "IDを入力してください"){
-            IDInputField.text = ""
+    @IBAction func IDInputFieldEditingDidBegin(sender: UITextField) {
+        if(sender.text! == ""){
+            sender.text = "IDを入力してください"
         }
-        
-        if(textField == PWInputField && textField.text! == "パスワードを入力してください"){
-            PWInputField.text = ""
-        }
-        
-        
     }
     
+    @IBAction func PWInputFieldEditingDidBegin(sender: UITextField) {
+        if(sender.text! == ""){
+            sender.secureTextEntry = false
+            sender.text = "パスワードを入力してください"
+        }
+    }
+    
+   /*
+    編集開始時の処理
+    */
+    @IBAction func IDInputFieldTouchDown(sender: UITextField) {
+        if(sender.text! == "IDを入力してください"){
+            sender.text = ""
+        }
+    }
+    @IBAction func PWInputFieldTouchDown(sender: UITextField) {
+        if(sender.text! == "パスワードを入力してください"){
+            sender.text = ""
+        }
+        sender.secureTextEntry = true
+    }
 
+    
     /*
     // MARK: - Navigation
 
