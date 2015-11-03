@@ -16,7 +16,29 @@ class ViewController: UIViewController {
         
     }
     
+    var selectGraphicImage : UIImage?
+    
+    @IBAction func rect1(sender: AnyObject) {
+        selectGraphicImage = UIImage(named: "Reset3.png")
+        if selectGraphicImage != nil{
+            
+            performSegueWithIdentifier("toSubViewController",sender: nil)
+        }
         
+    }
+    
+    // Segue 準備
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "toRPaint") {
+            let PaintC: PaintController = (segue.destinationViewController as? PaintController)!
+            // SubViewController のselectedImgに選択された画像を設定する
+            PaintC.selectGraphicImg = selectGraphicImage
+        }
+    }
+    
+    
+    
+    
     
 
     override func didReceiveMemoryWarning() {

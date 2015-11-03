@@ -8,7 +8,8 @@
 
 import UIKit
 import ACEDrawingView
-class PaintController: UIViewController {
+class PaintController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+
 
     // view & button　の宣言
     @IBOutlet var drawingView: ACEDrawingView!
@@ -24,6 +25,16 @@ class PaintController: UIViewController {
     @IBOutlet var L_width3: UIButton!
     
     @IBOutlet var Eraser: UIButton!
+    
+    
+    
+    @IBOutlet var Reset: UIButton!
+    var selectGraphicImg: UIImage!
+    
+    @IBOutlet var Wtable: UITableView!
+     let WImgArray: NSArray = ["L_width1.png","L_width2.png","L_width3.png"]
+        
+    
     
     // 背景色の設定
     let select = UIColor.lightGrayColor()
@@ -49,13 +60,11 @@ class PaintController: UIViewController {
         //選択中背景の初期設定
         L_width1.backgroundColor = select
         
+        Reset.setImage(selectGraphicImg, forState: .Normal)
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     
     // 円のボタン表示
@@ -177,6 +186,68 @@ class PaintController: UIViewController {
     @IBAction func Reset(sender: AnyObject) {
         drawingView.clear()}
 
+    
+    
+    
+    //Table Viewのセルの数を指定
+    func tableView(Wtable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return WImgArray.count
+    }
+    
+    //各セルの要素を設定する
+    func tableView(Wtable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // tableCell の ID で UITableViewCell のインスタンスを生成
+        let cell = Wtable.dequeueReusableCellWithIdentifier("WtableCell", forIndexPath: indexPath)
+        
+        let Wimg = UIImage(named:"\(WImgArray[indexPath.row])")
+        // Tag番号 1 で UIImageView インスタンスの生成
+        let WimageView = Wtable.viewWithTag(1) as! UIImageView
+        WimageView.image = Wimg
+        
+        return cell
+    }
+
+    func tableView(Wtable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    switch indexPath.row{
+    case 0:
+        drawingView.lineWidth = 10.0
+
+    case 1:
+        drawingView.lineWidth = 20.0
+
+    case 2:
+        drawingView.lineWidth = 30.0
+
+    default:
+    break
+    }}
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     /*
