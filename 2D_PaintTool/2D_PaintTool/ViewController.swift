@@ -18,25 +18,23 @@ class ViewController: UIViewController {
     
     var selectGraphicImage : UIImage?
     
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    
     @IBAction func Reset1(sender: AnyObject) {
-        selectGraphicImage = UIImage(named: "Reset3.png")
-        if selectGraphicImage != nil{
-            
-            performSegueWithIdentifier("toSubViewController",sender: nil)
-        }
-        
+        //appDelegateの変数を操作　円
+        appDelegate.selectGraphic = 1
     }
     
-    // Segue 準備
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-       
-    
+    @IBAction func Reset2(sender: AnyObject) {
+        appDelegate.selectGraphic = 2
+
     }
     
     
-    
-    
-    
+    @IBAction func Reset3(sender: AnyObject) {
+        appDelegate.selectGraphic = 3
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -24,9 +24,12 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var L_width2: UIButton!
     @IBOutlet var L_width3: UIButton!
     
-      
-    
     @IBOutlet var Reset: UIButton!
+    
+    // 保存フラグ
+    var SaveFlag : Int! = 0
+
+    
     
     @IBOutlet var Tooltable: UITableView!
      let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
@@ -60,14 +63,43 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         Tooltable.scrollEnabled = false
         
         
-        self.drawingView.layer.cornerRadius = 325
-        self.drawingView.layer.masksToBounds = true
-        
     }
+    
+    //画面が表示される直前//
+     override func viewWillAppear(animated: Bool){
+        //選択領域の概形選択&リセットボタンの画像設定
 
-    
-    
-      
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let selectGraphic = appDelegate.selectGraphic
+        
+        switch selectGraphic{
+        case 1:
+            self.drawingView.layer.cornerRadius = 325
+            self.drawingView.layer.masksToBounds = true
+            Reset.setImage(UIImage(named: "Reset1"), forState: UIControlState.Normal)
+        case 2:
+            Reset.setImage(UIImage(named: "Reset2"), forState: UIControlState.Normal)
+            drawingView.frame = CGRectMake(170, 100, 700, 550)
+            
+        case 3:
+            Reset.setImage(UIImage(named: "Reset3"), forState: UIControlState.Normal)
+        case 0:
+            let alertController = UIAlertController(title: "Hello!", message: "This is Alert sample.", preferredStyle: .Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+        default:
+            let alertController = UIAlertController(title: "BAD!", message: "This is Alert sample.", preferredStyle: .Alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+            
+        }
+    }
     
     @IBAction func MenuBack(sender: AnyObject) {
         MenuList.hidden = true
@@ -210,9 +242,37 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
  
     
     
+    @IBAction func Save(sender: AnyObject) {
+     SaveFlag = 1
+    }
     
     
+    @IBAction func NewCreate(sender: AnyObject) {
+        if  SaveFlag == 0{
+            
+        let alertController = UIAlertController(title: "新規作成", message: "編集した画像が保存されていません。\n保存しますか?", preferredStyle: .Alert)
+        let otherAction = UIAlertAction(title: "OK", style: .Default) {
+            action in
+            // self.MenuList.hidden = true
+        }
+        let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
+            action in
+            //概形選択へ移動
+            let targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "selectGraphic" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+            }
+        
+        alertController.addAction(otherAction)
+        alertController.addAction(cancelAction)
+        presentViewController(alertController, animated: true, completion: nil)
+        }else{
+            let targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "selectGraphic" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        }
     
+        
+        
+    }
     
     
     
