@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lAh-mq-XgJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lAh-mq-XgJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
@@ -16,24 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b06-sf-OsH">
-                                <rect key="frame" x="841" y="456" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b06-sf-OsH">
+                                <rect key="frame" x="660" y="438" width="66" height="66"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="Reset1.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-S3-YCa">
-                                <rect key="frame" x="952" y="456" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2U-S3-YCa">
+                                <rect key="frame" x="947" y="442" width="56" height="58"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="Reset3.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWW-V9-yhf">
-                                <rect key="frame" x="729" y="456" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWW-V9-yhf">
+                                <rect key="frame" x="808" y="450" width="64" height="42"/>
                                 <animations/>
-                                <state key="normal" title="rect1"/>
-                                <connections>
-                                    <action selector="rect1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KN6-Lv-ovA"/>
-                                    <segue destination="lAh-mq-XgJ" kind="modal" identifier="toRPaint" id="EsJ-JG-Zhq"/>
-                                </connections>
+                                <state key="normal" image="Reset2.png"/>
                             </button>
                         </subviews>
                         <animations/>
@@ -44,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="420"/>
+            <point key="canvasLocation" x="58" y="365"/>
         </scene>
         <!--Test Table-->
         <scene sceneID="ada-eM-sR2">
@@ -62,7 +58,7 @@
                                 <rect key="frame" x="80" y="262" width="95" height="411"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="96" id="Dt9-LV-DnG">
                                         <rect key="frame" x="0.0" y="28" width="95" height="96"/>
@@ -77,7 +73,7 @@
                                                 </imageView>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
@@ -91,7 +87,7 @@
                                 <rect key="frame" x="430" y="343" width="133" height="65"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -156,7 +152,7 @@
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="35"/>
                                         <inset key="titleEdgeInsets" minX="17" minY="20" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="Home.png">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="modal" id="dPc-cs-Dd6"/>
@@ -181,7 +177,7 @@
                                         <inset key="titleEdgeInsets" minX="30" minY="10" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="42" maxY="0.0"/>
                                         <state key="normal" image="Save.png">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FZ-r1-1Lj">
@@ -199,7 +195,7 @@
                                         <rect key="frame" x="95" y="351" width="141" height="43"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="35"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Member.png" translatesAutoresizingMaskIntoConstraints="NO" id="o6P-Qb-zXo">
@@ -218,21 +214,21 @@
                                         <rect key="frame" x="95" y="142" width="141" height="43"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="35"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="保存" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6v-MA-yqc">
                                         <rect key="frame" x="95" y="283" width="141" height="43"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="35"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="新規作成" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdD-aV-tak">
                                         <rect key="frame" x="95" y="208" width="141" height="43"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="35"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -271,7 +267,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Og1-W9-VdO" userLabel="Reset">
-                                <rect key="frame" x="893" y="622" width="120" height="34"/>
+                                <rect key="frame" x="893" y="622" width="100" height="100"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -279,177 +275,92 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4v-hE-YBb" userLabel="WidthBackground">
-                                <rect key="frame" x="908" y="236" width="91" height="244"/>
+                                <rect key="frame" x="908" y="250" width="91" height="252"/>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O00-CD-ijC" userLabel="L_WidthStack">
-                                <rect key="frame" x="916" y="252" width="74" height="212"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veh-O2-UAT" userLabel="L_width1">
-                                        <rect key="frame" x="0.0" y="0.0" width="74" height="44"/>
-                                        <animations/>
-                                        <state key="normal" image="L_width1.png"/>
-                                        <connections>
-                                            <action selector="Width1:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Eau-8g-eTM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLe-ht-oSf" userLabel="L_width2">
-                                        <rect key="frame" x="0.0" y="64" width="74" height="56"/>
-                                        <animations/>
-                                        <state key="normal" image="L_width2.png"/>
-                                        <connections>
-                                            <action selector="Width2:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="mem-FP-2gj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-0Y-fOY" userLabel="L_width3">
-                                        <rect key="frame" x="0.0" y="140" width="74" height="72"/>
-                                        <animations/>
-                                        <state key="normal" image="L_width3.png"/>
-                                        <connections>
-                                            <action selector="Width3:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="XJy-3z-whC"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veh-O2-UAT" userLabel="L_width1">
+                                <rect key="frame" x="916" y="260" width="75" height="70"/>
+                                <animations/>
+                                <state key="normal" image="L_width1.png"/>
+                                <connections>
+                                    <action selector="Width1:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Eau-8g-eTM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLe-ht-oSf" userLabel="L_width2">
+                                <rect key="frame" x="916" y="330" width="75" height="75"/>
+                                <animations/>
+                                <state key="normal" image="L_width2.png"/>
+                                <connections>
+                                    <action selector="Width2:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="mem-FP-2gj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-0Y-fOY" userLabel="L_width3">
+                                <rect key="frame" x="916" y="415" width="75" height="75"/>
+                                <animations/>
+                                <state key="normal" image="L_width3.png"/>
+                                <connections>
+                                    <action selector="Width3:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="XJy-3z-whC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fce-sp-gRZ" userLabel="Rect_S">
+                                <rect key="frame" x="115" y="435" width="61" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6SI-3C-utH" userLabel="ToolBackground">
-                                <rect key="frame" x="11" y="36" width="103" height="705"/>
-                                <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ewd-u9-UDf">
-                                <rect key="frame" x="111" y="371" width="44" height="98"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcu-jv-S1Z" userLabel="Ellipse_S">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="Ellipse_S.png"/>
-                                        <connections>
-                                            <action selector="EllipseStroke:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="A7m-NK-9bb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2il-dQ-Afv" userLabel="Ellipse_F">
-                                        <rect key="frame" x="0.0" y="54" width="44" height="44"/>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="Ellipse_F.png"/>
-                                        <connections>
-                                            <action selector="EllipseFill:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="nZR-sX-3GD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="waq-SW-FVg">
-                                <rect key="frame" x="111" y="461" width="56" height="102"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fce-sp-gRZ" userLabel="Rect_S">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="46"/>
-                                        <animations/>
-                                        <state key="normal" image="Rect_S.png"/>
-                                        <connections>
-                                            <action selector="RectStroke:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Hhk-p1-oj4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-AC-Xkq" userLabel="Rect_F">
-                                        <rect key="frame" x="0.0" y="56" width="56" height="46"/>
-                                        <animations/>
-                                        <state key="normal" image="Rect_F.png"/>
-                                        <connections>
-                                            <action selector="RectFill:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="HJ3-Wh-Vxc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <animations/>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="rxr-Ls-ARN" userLabel="ToolStack">
-                                <rect key="frame" x="20" y="62" width="86" height="644"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbp-iE-LL0" userLabel="Menu">
-                                        <rect key="frame" x="0.0" y="0.0" width="86" height="46"/>
-                                        <animations/>
-                                        <state key="normal" image="Menu.png"/>
-                                        <connections>
-                                            <action selector="Menu:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="qWL-BG-w8V"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMX-B0-N9Q" userLabel="Pen">
-                                        <rect key="frame" x="0.0" y="86" width="86" height="94"/>
-                                        <animations/>
-                                        <state key="normal" image="Pen.png"/>
-                                        <connections>
-                                            <action selector="Pen:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="0Vn-r3-hmf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-hA-KYY" userLabel="Line">
-                                        <rect key="frame" x="0.0" y="220" width="86" height="44"/>
-                                        <animations/>
-                                        <state key="normal" image="Line.png"/>
-                                        <connections>
-                                            <action selector="Line:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="GaV-Lc-gcn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUE-x7-Iix" userLabel="Ellipse">
-                                        <rect key="frame" x="0.0" y="304" width="86" height="58"/>
-                                        <animations/>
-                                        <state key="normal" image="Ellipse.png"/>
-                                        <connections>
-                                            <action selector="Ellipse:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="sU1-mr-Fhe"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pam-W5-77L" userLabel="Rect">
-                                        <rect key="frame" x="0.0" y="402" width="86" height="46"/>
-                                        <animations/>
-                                        <state key="normal" image="Rect.png"/>
-                                        <connections>
-                                            <action selector="Rect:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="eRD-yv-r2k"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3YQ-AA-PIA">
-                                        <rect key="frame" x="0.0" y="488" width="86" height="58"/>
-                                        <animations/>
-                                        <state key="normal" image="Eraser.png"/>
-                                        <connections>
-                                            <action selector="Eraser:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="ffG-g5-T9C"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIJ-D5-rTG" userLabel="Text">
-                                        <rect key="frame" x="0.0" y="586" width="86" height="58"/>
-                                        <animations/>
-                                        <state key="normal" image="Text.png"/>
-                                        <connections>
-                                            <action selector="Text:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="s14-oS-TDq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                                <state key="normal" image="Rect_S.png"/>
+                                <connections>
+                                    <action selector="RectStroke:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Hhk-p1-oj4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNn-AC-Xkq" userLabel="Rect_F">
+                                <rect key="frame" x="115" y="485" width="61" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RFe-pe-Wmz">
-                                <rect key="frame" x="804" y="208" width="90" height="272"/>
+                                <state key="normal" image="Rect_F.png"/>
+                                <connections>
+                                    <action selector="RectFill:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="HJ3-Wh-Vxc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2il-dQ-Afv" userLabel="Ellipse_F">
+                                <rect key="frame" x="115" y="385" width="50" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Ellipse_F.png"/>
+                                <connections>
+                                    <action selector="EllipseFill:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="nZR-sX-3GD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcu-jv-S1Z" userLabel="Ellipse_S">
+                                <rect key="frame" x="115" y="335" width="50" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Ellipse_S.png"/>
+                                <connections>
+                                    <action selector="EllipseStroke:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="A7m-NK-9bb"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RFe-pe-Wmz">
+                                <rect key="frame" x="16" y="35" width="100" height="700"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WtableCell" rowHeight="93" id="3dg-eN-aAg">
-                                        <rect key="frame" x="0.0" y="28" width="90" height="93"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TtableCell" rowHeight="100" id="3dg-eN-aAg">
+                                        <rect key="frame" x="0.0" y="28" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3dg-eN-aAg" id="qrL-T3-hzj">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="93"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wse-CE-O4s">
-                                                    <rect key="frame" x="1" y="3" width="88" height="88"/>
+                                                    <rect key="frame" x="3" y="2" width="95" height="95"/>
                                                     <animations/>
                                                 </imageView>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -460,16 +371,12 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rxr-Ls-ARN" firstAttribute="centerY" secondItem="Qxm-e6-gYO" secondAttribute="centerY" id="Whe-FS-OqO"/>
-                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="Ellipse_F" destination="2il-dQ-Afv" id="ce2-Bc-RsB"/>
                         <outlet property="Ellipse_S" destination="hcu-jv-S1Z" id="IwA-EZ-8ma"/>
-                        <outlet property="Eraser" destination="3YQ-AA-PIA" id="Kj0-ft-P7h"/>
                         <outlet property="L_width1" destination="veh-O2-UAT" id="2MO-a2-b1d"/>
                         <outlet property="L_width2" destination="YLe-ht-oSf" id="DVd-ck-PXQ"/>
                         <outlet property="L_width3" destination="Y3x-0Y-fOY" id="XMh-YI-cCT"/>
@@ -477,7 +384,7 @@
                         <outlet property="Rect_F" destination="QNn-AC-Xkq" id="7Zd-Z9-234"/>
                         <outlet property="Rect_S" destination="fce-sp-gRZ" id="z7r-Ar-mHr"/>
                         <outlet property="Reset" destination="Og1-W9-VdO" id="GG7-1q-0Jl"/>
-                        <outlet property="Wtable" destination="RFe-pe-Wmz" id="TYx-X5-hvX"/>
+                        <outlet property="Tooltable" destination="RFe-pe-Wmz" id="lxG-dh-bl2"/>
                         <outlet property="drawingView" destination="T9I-bu-98m" id="NXk-nF-a5x"/>
                     </connections>
                 </viewController>
@@ -487,27 +394,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ellipse.png" width="86" height="58"/>
         <image name="Ellipse_F.png" width="44" height="44"/>
         <image name="Ellipse_S.png" width="44" height="44"/>
-        <image name="Eraser.png" width="64" height="58"/>
         <image name="Home.png" width="72" height="62"/>
         <image name="L_width1.png" width="44" height="44"/>
         <image name="L_width2.png" width="56" height="56"/>
         <image name="L_width3.png" width="74" height="72"/>
-        <image name="Line.png" width="72" height="44"/>
         <image name="Member.png" width="96" height="90"/>
-        <image name="Menu.png" width="58" height="46"/>
         <image name="MenuBack.png" width="22" height="32"/>
         <image name="NewCreate.png" width="48" height="58"/>
-        <image name="Pen.png" width="80" height="94"/>
         <image name="ReDo.png" width="86" height="56"/>
-        <image name="Rect.png" width="86" height="46"/>
         <image name="Rect_F.png" width="56" height="46"/>
         <image name="Rect_S.png" width="56" height="46"/>
+        <image name="Reset1.png" width="66" height="66"/>
+        <image name="Reset2.png" width="64" height="42"/>
+        <image name="Reset3.png" width="56" height="58"/>
         <image name="Save.png" width="58" height="58"/>
         <image name="Search.png" width="62" height="60"/>
-        <image name="Text.png" width="64" height="58"/>
         <image name="UnDo.png" width="86" height="56"/>
     </resources>
 </document>

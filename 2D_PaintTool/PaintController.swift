@@ -24,15 +24,12 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var L_width2: UIButton!
     @IBOutlet var L_width3: UIButton!
     
-    @IBOutlet var Eraser: UIButton!
-    
-    
+      
     
     @IBOutlet var Reset: UIButton!
-    var selectGraphicImg: UIImage!
     
-    @IBOutlet var Wtable: UITableView!
-     let WImgArray: NSArray = ["L_width1.png","L_width2.png","L_width3.png"]
+    @IBOutlet var Tooltable: UITableView!
+     let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
         
     
     
@@ -59,32 +56,18 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         //選択中背景の初期設定
         L_width1.backgroundColor = select
+        // テーブルのスクロール固定
+        Tooltable.scrollEnabled = false
         
-        Reset.setImage(selectGraphicImg, forState: .Normal)
         
+        self.drawingView.layer.cornerRadius = 325
+        self.drawingView.layer.masksToBounds = true
         
     }
 
     
     
-    // 円のボタン表示
-    @IBAction func Ellipse(sender: AnyObject) {
-        Ellipse_S.hidden = false
-        Ellipse_F.hidden = false
-    }
-    
-    // 四角のボタン表示
-    @IBAction func Rect(sender: AnyObject) {
-        Rect_S.hidden = false
-        Rect_F.hidden = false
-    }
-    
-    
-    
-    @IBAction func Menu(sender: AnyObject) {
-        MenuList.hidden = false
-    }
-    
+      
     
     @IBAction func MenuBack(sender: AnyObject) {
         MenuList.hidden = true
@@ -96,14 +79,6 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     
-    
-    // ペン
-    @IBAction func Pen(sender: AnyObject) {
-        drawingView.drawTool = ACEDrawingToolTypePen}
-    
-    // 直線
-    @IBAction func Line(sender: AnyObject) {
-        drawingView.drawTool = ACEDrawingToolTypeLine}
     
     
     // 円(線のみ)
@@ -135,17 +110,6 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     }
     
-    
-    // 消しゴム
-    @IBAction func Eraser(sender: AnyObject) {
-        
-        
-        drawingView.drawTool = ACEDrawingToolTypeEraser}
-    
-    // テキスト
-    @IBAction func Text(sender: AnyObject) {
-        drawingView.drawTool = ACEDrawingToolTypeText}
-   
     
     
     
@@ -188,40 +152,61 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     
     
-    
+    // ToolTable作成 //
     //Table Viewのセルの数を指定
-    func tableView(Wtable: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WImgArray.count
+    func tableView(Tooltable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return TImgArray.count
     }
     
     //各セルの要素を設定する
-    func tableView(Wtable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(Tooltable: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // tableCell の ID で UITableViewCell のインスタンスを生成
-        let cell = Wtable.dequeueReusableCellWithIdentifier("WtableCell", forIndexPath: indexPath)
+        let cell = Tooltable.dequeueReusableCellWithIdentifier("TtableCell", forIndexPath: indexPath)
         
-        let Wimg = UIImage(named:"\(WImgArray[indexPath.row])")
+        let Timg = UIImage(named:"\(TImgArray[indexPath.row])")
         // Tag番号 1 で UIImageView インスタンスの生成
-        let WimageView = Wtable.viewWithTag(1) as! UIImageView
-        WimageView.image = Wimg
+        let TimageView = Tooltable.viewWithTag(1) as! UIImageView
+        TimageView.image = Timg
+        
+        //ToolTableCell選択時のバックカラーの変更
+        let cellSelectedBgView = UIView()
+        cellSelectedBgView.backgroundColor = select
+        cell.selectedBackgroundView = cellSelectedBgView
         
         return cell
     }
-
-    func tableView(Wtable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+   // Tableの機能
+    func tableView(Tooltable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     switch indexPath.row{
     case 0:
-        drawingView.lineWidth = 10.0
-
+        MenuList.hidden = false
     case 1:
-        drawingView.lineWidth = 20.0
-
+        drawingView.drawTool = ACEDrawingToolTypePen
     case 2:
-        drawingView.lineWidth = 30.0
-
+        drawingView.drawTool = ACEDrawingToolTypeLine
+    case 3:
+        Ellipse_S.hidden = false
+        Ellipse_F.hidden = false
+    case 4:
+        Rect_S.hidden = false
+        Rect_F.hidden = false
+    case 5:
+        drawingView.drawTool = ACEDrawingToolTypeEraser
+    case 6:
+        drawingView.drawTool = ACEDrawingToolTypeText
     default:
     break
-    }}
+    }
+        if indexPath.row != 3{
+            Ellipse_F.hidden = true
+            Ellipse_S.hidden = true
+        }
+        if indexPath.row != 4{
+            Rect_F.hidden = true
+            Rect_S.hidden = true
+        }
+    }
  
     
     
