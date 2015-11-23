@@ -13,33 +13,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b06-sf-OsH">
-                                <rect key="frame" x="660" y="438" width="66" height="66"/>
+                                <rect key="frame" x="100" y="367" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" image="Reset1.png"/>
+                                <state key="normal" image="Select1.png"/>
                                 <connections>
                                     <action selector="Reset1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7f-Kv-HQA"/>
                                     <segue destination="lAh-mq-XgJ" kind="modal" id="bSQ-zb-pAo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y2U-S3-YCa">
-                                <rect key="frame" x="947" y="442" width="56" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" image="Reset3.png"/>
-                                <connections>
-                                    <action selector="Reset3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U0R-JX-6I2"/>
-                                    <segue destination="lAh-mq-XgJ" kind="modal" id="k8b-yC-H3w"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BWW-V9-yhf">
-                                <rect key="frame" x="808" y="450" width="64" height="42"/>
+                                <rect key="frame" x="362" y="385" width="300" height="164"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" image="Reset2.png"/>
+                                <state key="normal" image="Select2.png"/>
                                 <connections>
                                     <action selector="Reset2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sRJ-Ch-ffF"/>
                                     <segue destination="lAh-mq-XgJ" kind="modal" id="vT6-Xt-rUx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="彫刻する食べ物の形を選んでください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qg5-Zd-W8D">
+                                <rect key="frame" x="170" y="179" width="685" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sXb-JH-g8D">
+                                <rect key="frame" x="37" y="24" width="81" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="S_Home.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y2U-S3-YCa">
+                                <rect key="frame" x="731" y="367" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="Select3.png"/>
+                                <connections>
+                                    <action selector="Reset3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U0R-JX-6I2"/>
+                                    <segue destination="lAh-mq-XgJ" kind="modal" id="k8b-yC-H3w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="602"/>
+            <point key="canvasLocation" x="-132" y="596"/>
         </scene>
         <!--Test Table-->
         <scene sceneID="ada-eM-sR2">
@@ -401,6 +415,78 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" id="CnY-3U-pUb">
+                                <rect key="frame" x="187" y="12" width="646" height="340"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qhi-kP-OKs">
+                                        <rect key="frame" x="547" y="22" width="75" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <state key="normal" title="キャンセル"/>
+                                        <connections>
+                                            <action selector="SaveCancel:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="k9g-Qx-iwj"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="wmE-Jj-dB8">
+                                        <rect key="frame" x="241" y="76" width="253" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="ffZ-8z-LBg">
+                                        <rect key="frame" x="241" y="140" width="253" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="カテゴリ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3e6-TY-Q3Y">
+                                        <rect key="frame" x="125" y="80" width="68" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="onq-be-eNI">
+                                        <rect key="frame" x="125" y="149" width="68" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0JD-Be-Ytb">
+                                        <rect key="frame" x="134" y="209" width="378" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="opo-Kx-BHi">
+                                        <rect key="frame" x="134" y="246" width="378" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rJ4-9m-lpY">
+                                        <rect key="frame" x="308" y="283" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                        <state key="normal" title="保存"/>
+                                        <connections>
+                                            <action selector="SavePost:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="SRc-Eg-kBj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.72083061933517456" green="0.93132340908050537" blue="0.93850016593933105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,6 +494,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="CategoryField" destination="wmE-Jj-dB8" id="TyI-KM-zND"/>
                         <outlet property="Ellipse_F" destination="2il-dQ-Afv" id="ce2-Bc-RsB"/>
                         <outlet property="Ellipse_S" destination="hcu-jv-S1Z" id="IwA-EZ-8ma"/>
                         <outlet property="L_width1" destination="veh-O2-UAT" id="2MO-a2-b1d"/>
@@ -417,13 +504,17 @@
                         <outlet property="Rect_F" destination="QNn-AC-Xkq" id="7Zd-Z9-234"/>
                         <outlet property="Rect_S" destination="fce-sp-gRZ" id="z7r-Ar-mHr"/>
                         <outlet property="Reset" destination="Og1-W9-VdO" id="GG7-1q-0Jl"/>
+                        <outlet property="SCategoryError" destination="opo-Kx-BHi" id="Ayv-4b-uKN"/>
+                        <outlet property="STittleError" destination="0JD-Be-Ytb" id="EgT-dE-4gz"/>
+                        <outlet property="SaveView" destination="CnY-3U-pUb" id="I6Z-Hw-cXS"/>
+                        <outlet property="TittleField" destination="ffZ-8z-LBg" id="wKB-BE-a4I"/>
                         <outlet property="Tooltable" destination="RFe-pe-Wmz" id="lxG-dh-bl2"/>
                         <outlet property="drawingView" destination="T9I-bu-98m" id="NXk-nF-a5x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIF-j2-m09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216" y="596"/>
+            <point key="canvasLocation" x="1244" y="588"/>
         </scene>
     </scenes>
     <resources>
@@ -439,11 +530,12 @@
         <image name="ReDo.png" width="86" height="56"/>
         <image name="Rect_F.png" width="44" height="36"/>
         <image name="Rect_S.png" width="44" height="36"/>
-        <image name="Reset1.png" width="66" height="66"/>
-        <image name="Reset2.png" width="64" height="42"/>
-        <image name="Reset3.png" width="56" height="58"/>
+        <image name="S_Home.png" width="78" height="64"/>
         <image name="Save.png" width="58" height="58"/>
         <image name="Search.png" width="62" height="60"/>
+        <image name="Select1.png" width="153" height="153"/>
+        <image name="Select2.png" width="238" height="153"/>
+        <image name="Select3.png" width="153" height="153"/>
         <image name="UnDo.png" width="86" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>

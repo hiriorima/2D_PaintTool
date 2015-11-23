@@ -8,7 +8,7 @@
 
 import UIKit
 import ACEDrawingView
-class PaintController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class PaintController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UIToolbarDelegate{
 
 
     // view & button　の宣言
@@ -33,6 +33,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBOutlet var Tooltable: UITableView!
      let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
+    
+    
+    @IBOutlet weak var SaveView: UIView!
+    let CategoryArray: NSArray = ["キャラクター","しょくぶつ","しょくじ","じんぶつ","どうぶつ","のりもの","まーく","そのた"]
         
     
     
@@ -54,14 +58,35 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         Rect_S.hidden = true
         Rect_F.hidden = true
         
-        // メニューリストの非表示
+        // メニューリスト&セーブウインドウの非表示
         MenuList.hidden = true
+        SaveView.hidden = true
         
         //選択中背景の初期設定
         L_width1.backgroundColor = select
         // テーブルのスクロール固定
         Tooltable.scrollEnabled = false
         
+        //保存の初期設定
+        TittleField.delegate = self
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        CategoryField.inputView = pickerView
+        
+        
+        myToolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        myToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        myToolBar.backgroundColor = UIColor.blackColor()
+        myToolBar.barStyle = UIBarStyle.Black
+        myToolBar.tintColor = UIColor.whiteColor()
+        
+        //ToolBarを閉じるボタンを追加
+        let myToolBarButton = UIBarButtonItem(title: "Close", style: .Done, target: self, action: "onClick:")
+        myToolBarButton.tag = 1
+        myToolBar.items = [myToolBarButton]
+        
+        //TextFieldをpickerViewとToolVerに関連づけ
+        CategoryField.inputAccessoryView = myToolBar
         
     }
     
@@ -241,10 +266,105 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
  
     
+   // 保存  //
+    
+    @IBOutlet weak var STittleError: UILabel!
+    @IBOutlet weak var SCategoryError: UILabel!
+    @IBOutlet weak var TittleField: UITextField!
+    @IBOutlet weak var CategoryField: UITextField!
+    var Tittle :String = ""
+    var Category :Int = 10
+    
+    var myToolBar: UIToolbar!
+    
     
     @IBAction func Save(sender: AnyObject) {
-     SaveFlag = 1
+     
+        MenuList.hidden = true
+        drawingView.userInteractionEnabled = false
+        SaveView.hidden = false
+        
+        TittleField.placeholder = "x~y文字までの間で入力してください"
+        
     }
+    
+    //タイトル入力
+    //文字数制限
+    func textField(TittleField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        // 文字数最大を決める.
+        let maxLength: Int = 6
+        // 入力済みの文字と入力された文字を合わせて取得.
+        let str = TittleField.text! + string
+        // 文字数がmaxLength以下ならtrueを返す.
+        if str.characters.count < maxLength {
+            return true
+        }
+        return false}
+    
+    //改行した時キーボードを閉じる
+    func textFieldShouldReturn(textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    
+    //カテゴリ選択
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return CategoryArray.count
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return CategoryArray[row] as? String
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        CategoryField.text = CategoryArray[row] as? String
+        Category = row
+    }
+    func onClick(sender: UIBarButtonItem) {
+        CategoryField.resignFirstResponder()
+    }
+    
+    
+    
+    
+    @IBAction func SavePost(sender: AnyObject) {
+        Tittle = TittleField.text!
+        
+        //エラー処理
+        if Tittle.characters.count == 0{
+            STittleError.text = "タイトルが入力されていません。"
+        }else{
+            STittleError.text = ""}
+        if Category == 10 {
+            SCategoryError.text = "カテゴリが選択されていません。"
+        }else{
+            SCategoryError.text = ""}
+        
+        print(Tittle)
+        print(Tittle.characters.count)
+        print(CategoryField.text)
+        print(Category)
+    
+        //SaveView.hidden = true
+        //drawingView.userInteractionEnabled = true
+        SaveFlag = 1
+    }
+    
+    
+    
+    
+    @IBAction func SaveCancel(sender: AnyObject) {
+     
+     SaveView.hidden = true
+     drawingView.userInteractionEnabled = true
+        
+    }
+    
+    
     
     
     @IBAction func NewCreate(sender: AnyObject) {
@@ -253,7 +373,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         let alertController = UIAlertController(title: "新規作成", message: "編集した画像が保存されていません。\n保存しますか?", preferredStyle: .Alert)
         let otherAction = UIAlertAction(title: "OK", style: .Default) {
             action in
-            // self.MenuList.hidden = true
+            // 保存ウィンドウの表示
+            self.drawingView.hidden = true
+            self.SaveView.hidden = false
+            self.drawingView.userInteractionEnabled = false
         }
         let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
             action in
