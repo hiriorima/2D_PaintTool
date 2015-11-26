@@ -17,12 +17,26 @@ class LoginViewController: UIViewController,
     
     private var txtActiveField = UITextField()
     
+    let baseHost = "http://160.16.234.136:3000"
+    let oneYearInSeconds = NSTimeInterval(60 * 60 * 24 * 365)
+
+    
     override func viewDidLoad() {
     super.viewDidLoad()
     sc.frame = self.view.frame
     IDInputField.delegate = self
     PWInputField.delegate = self
     sc.delegate = self
+        
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/noooo")!
+        
+        request.get(url, completionHandler: { data, response, error in
+            // code
+            self.SetCookieActivity()
+        })
+
     // Do any additional setup after loading the view.
     }
     
@@ -141,7 +155,53 @@ class LoginViewController: UIViewController,
     sc.contentOffset.y = 0
     }
 
+    @IBAction func TapLoginButton(sender: UIButton) {
+       let String_ID = IDInputField.text
+        let String_PW = PWInputField.text
+        
+        LoginActivity(String_ID!, password: String_PW!)
+        
+    }
     
+    func LoginActivity(userid: String, password: String){
+        
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/loginuser")!
+        let body: NSMutableDictionary = NSMutableDictionary()
+        body.setValue(userid, forKey: "userid")
+        body.setValue(password, forKey: "password")
+        
+        request.post(url, body: body, completionHandler: { data, response, error in
+            // code
+            self.SetCookieActivity()
+        })
+
+    }
+ 
+    func SetCookieActivity(){
+        
+        let cookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        
+        let cookies = cookieStorage.cookies
+        for cookie in cookies! {
+            var cookieProperties = [String: AnyObject]()
+            
+            cookieProperties[NSHTTPCookieName] = cookie.name
+            cookieProperties[NSHTTPCookieValue] = cookie.value
+            cookieProperties[NSHTTPCookieDomain] = cookie.domain
+            cookieProperties[NSHTTPCookiePath] = cookie.path
+            cookieProperties[NSHTTPCookieVersion] = NSNumber(integer: cookie.version)
+            cookieProperties[NSHTTPCookieExpires] = cookie.expiresDate
+            cookieProperties[NSHTTPCookieSecure] = cookie.secure
+            
+            // Setting a Cookie
+            if let newCookie = NSHTTPCookie(properties: cookieProperties) {
+                // Made a copy of cookie (cookie can't be set)
+                print("Newcookie: \(newCookie)")
+                NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(newCookie)
+            }
+        }
     /*
     // MARK: - Navigation
 
@@ -151,5 +211,5 @@ class LoginViewController: UIViewController,
         // Pass the selected object to the new view controller.
     }
     */
-
+    }
 }

@@ -9,12 +9,16 @@
 import UIKit
 
 class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScrollViewDelegate {
- @IBOutlet var IDInputField: UITextField!
+    
+    @IBOutlet var IDInputField: UITextField!
     @IBOutlet var PWInputField: UITextField!
     @IBOutlet var PWReinputField: UITextField!
     @IBOutlet var sc: UIScrollView!
     
     private var txtActiveField = UITextField()
+    
+    @IBOutlet weak var ErrorLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,9 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         PWInputField.delegate = self
         PWReinputField.delegate = self
         sc.delegate = self
+        
+        ErrorLabel.numberOfLines = 3
+        
         // Do any additional setup after loading the view.
     }
 
@@ -149,6 +156,40 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         sc.contentOffset.y = 0
     }
    
+    
+    @IBAction func TapAddNewAccount(sender: UIButton) {
+        
+        let String_ID = IDInputField.text
+        let String_PW = PWInputField.text
+        let String_RePW = PWReinputField.text
+        
+        //何も入力していない場合,英数字以外が入力されている場合
+    /*    if(String_ID == "IDを入力してください(英数字3~10字)"){
+            ErrorLabel.text = "IDを入力してください"
+        }else if(String_PW == "パスワードを入力してください(英数字4~8字)"){
+            ErrorLabel.text = "パスワードを入力してください"
+        }else if(String_RePW == "パスワードをもう一度入力してください(英数字4~8字)"){
+            ErrorLabel.text = "パスワードをもう一度入力してください"
+        }else if(String_ID ){
+            AddNewAccount();
+        }*/
+        
+        AddNewAccountActivity(String_ID!, password: String_PW!,password_confirmation: String_RePW!);
+    }
+    
+    func AddNewAccountActivity(userid:String ,password:String, password_confirmation:String){
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string: "http://paint.fablabhakodate.org/adduser")!
+        let body: NSMutableDictionary = NSMutableDictionary()
+        body.setValue(userid, forKey: "userid")
+        body.setValue(password, forKey: "password")
+        body.setValue(password_confirmation, forKey: "password_confirmation")
+        
+        request.post(url, body: body, completionHandler: { data, response, error in
+            // code
+        })
+    }
     
     /*
     // MARK: - Navigation
