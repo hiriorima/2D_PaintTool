@@ -25,9 +25,11 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var L_width3: UIButton!
     
     @IBOutlet var Reset: UIButton!
+    @IBOutlet var UnDo: UIButton!
+    @IBOutlet var ReDo: UIButton!
     
     // 保存フラグ
-    var SaveFlag : Int! = 0
+    var SaveFlag = (0,0)
 
     
     
@@ -68,12 +70,13 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         Tooltable.scrollEnabled = false
         
         //保存の初期設定
-        TittleField.delegate = self
+        TitleField.delegate = self
         let pickerView = UIPickerView()
         pickerView.delegate = self
         CategoryField.inputView = pickerView
         
         
+       
         myToolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         myToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         myToolBar.backgroundColor = UIColor.blackColor()
@@ -81,7 +84,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         myToolBar.tintColor = UIColor.whiteColor()
         
         //ToolBarを閉じるボタンを追加
-        let myToolBarButton = UIBarButtonItem(title: "Close", style: .Done, target: self, action: "onClick:")
+        let myToolBarButton = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: "onClick:")
         myToolBarButton.tag = 1
         myToolBar.items = [myToolBarButton]
         
@@ -127,7 +130,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     @IBAction func MenuBack(sender: AnyObject) {
-        MenuList.hidden = true
+        CollisionDetection(MenuList, ONOFF: true)
     }
     
     
@@ -172,11 +175,11 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
 
     // 戻る
-    @IBAction func Undo(sender: AnyObject) {
+    @IBAction func UnDo(sender: AnyObject) {
         drawingView.undoLatestStep()}
     
     // 進む
-    @IBAction func Redo(sender: AnyObject) {
+    @IBAction func ReDo(sender: AnyObject) {
     drawingView.redoLatestStep()}
     
     
@@ -237,7 +240,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(Tooltable: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
     switch indexPath.row{
     case 0:
-        MenuList.hidden = false
+        CollisionDetection(MenuList, ONOFF: false)
     case 1:
         drawingView.drawTool = ACEDrawingToolTypePen
     case 2:
@@ -266,25 +269,25 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
  
     
-   // 保存  //
     
-    @IBOutlet weak var STittleError: UILabel!
+    // 保存  //
+    
+    @IBOutlet weak var STitleError: UILabel!
     @IBOutlet weak var SCategoryError: UILabel!
-    @IBOutlet weak var TittleField: UITextField!
+    @IBOutlet weak var TitleField: UITextField!
     @IBOutlet weak var CategoryField: UITextField!
-    var Tittle :String = ""
-    var Category :Int = 10
+    var PostTitle :String = ""
+    var PostCategory :Int = 10
     
     var myToolBar: UIToolbar!
     
     
     @IBAction func Save(sender: AnyObject) {
-     
-        MenuList.hidden = true
-        drawingView.userInteractionEnabled = false
-        SaveView.hidden = false
         
-        TittleField.placeholder = "x~y文字までの間で入力してください"
+        MenuList.hidden = true
+        CollisionDetection(SaveView, ONOFF: false)
+        
+        TitleField.placeholder = "1~15字までの間で入力してください"
         
     }
     
@@ -292,11 +295,11 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     //文字数制限
     func textField(TittleField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         // 文字数最大を決める.
-        let maxLength: Int = 6
+        let maxLength: Int = 15
         // 入力済みの文字と入力された文字を合わせて取得.
         let str = TittleField.text! + string
         // 文字数がmaxLength以下ならtrueを返す.
-        if str.characters.count < maxLength {
+        if str.characters.count <= maxLength {
             return true
         }
         return false}
@@ -322,7 +325,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         CategoryField.text = CategoryArray[row] as? String
-        Category = row
+        PostCategory = row
     }
     func onClick(sender: UIBarButtonItem) {
         CategoryField.resignFirstResponder()
@@ -332,51 +335,121 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     @IBAction func SavePost(sender: AnyObject) {
-        Tittle = TittleField.text!
+        PostTitle = TitleField.text!
+        let UserID:String = "testA"
+        
         
         //エラー処理
-        if Tittle.characters.count == 0{
-            STittleError.text = "タイトルが入力されていません。"
-        }else{
-            STittleError.text = ""}
-        if Category == 10 {
-            SCategoryError.text = "カテゴリが選択されていません。"
-        }else{
-            SCategoryError.text = ""}
+        if PostTitle.characters.count != 0{
+            SaveFlag.0 =  1
+        }
         
-        print(Tittle)
-        print(Tittle.characters.count)
-        print(CategoryField.text)
-        print(Category)
-    
-        //SaveView.hidden = true
-        //drawingView.userInteractionEnabled = true
-        SaveFlag = 1
+        if PostCategory != 10 {
+            SaveFlag.1 =  1
+        }
+        
+        
+        switch SaveFlag{
+        case (0,0):
+            STitleError.text = "タイトルが入力されていません。"
+            SCategoryError.text = "カテゴリが選択されていません。"
+        case(0,1):
+            STitleError.text = "タイトルが入力されていません。"
+            SCategoryError.text = ""
+
+        case (1,0):
+            STitleError.text = ""
+            SCategoryError.text = "カテゴリが選択されていません。"
+        case(1,1):
+            STitleError.text = ""
+            SCategoryError.text = ""
+        default:
+            ErrorWindow()
+                }
+        
+        let PostImg: String = Image2String(drawingView.image)!;
+
+            
+            
+        
+        
+        if SaveFlag.1 == 1 && SaveFlag.0 == 1{
+            //送信文
+            SavePostTest(UserID,Title: PostTitle,Category: PostCategory,IMG: PostImg)
+            
+            print(PostTitle)
+            print(PostTitle.characters.count)
+            print(CategoryField.text)
+            print(PostCategory)
+
+            let alertController = UIAlertController(title: "保存完了", message: "Webページからダウンロードしてご使用ください。", preferredStyle: .Alert)
+           
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) {
+                action in self.CollisionDetection(self.SaveView, ONOFF: true)
+            }
+            alertController.addAction(defaultAction)
+            
+            presentViewController(alertController, animated: true, completion: nil)
+                       
+            
+        }
+        
+        
+        
     }
     
     
-    
+    //ポストの処理
+    func SavePostTest(UserID: String ,Title: String, Category: Int, IMG: String) {
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string:"http://paint.fablabhakodate.org/addpic")!
+        let body:NSMutableDictionary =
+        NSMutableDictionary()
+        
+        body.setValue(IMG, forKey: "filedata")
+        body.setValue(Title, forKey: "title")
+        body.setValue(UserID, forKey: "userid")
+        body.setValue(Category, forKey: "category")
+        
+        
+       request.post(url, body: body, completionHandler: {data, response, error in
+            //code
+        })
+    }
     
     @IBAction func SaveCancel(sender: AnyObject) {
-     
-     SaveView.hidden = true
-     drawingView.userInteractionEnabled = true
+        CollisionDetection(SaveView, ONOFF: true)
+    }
+    
+    
+    //画像をNSDataに変換
+    func Image2String(image:UIImage) -> String? {
+        let data:NSData = UIImagePNGRepresentation(image)!
+        //NSDataへの変換が成功していたら
+         if let pngData:NSData = data {
+        //BASE64のStringに変換する
+        let encodeString:String =
+        pngData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        return encodeString
+        }
+
+            return nil
         
     }
     
     
     
-    
+    // 新規作成
     @IBAction func NewCreate(sender: AnyObject) {
-        if  SaveFlag == 0{
+        if  SaveFlag.1 == 0 && SaveFlag.0 == 0{
             
         let alertController = UIAlertController(title: "新規作成", message: "編集した画像が保存されていません。\n保存しますか?", preferredStyle: .Alert)
         let otherAction = UIAlertAction(title: "OK", style: .Default) {
             action in
             // 保存ウィンドウの表示
-            self.drawingView.hidden = true
-            self.SaveView.hidden = false
-            self.drawingView.userInteractionEnabled = false
+            self.MenuList.hidden = true
+            self.CollisionDetection(self.SaveView, ONOFF: false)
         }
         let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
             action in
@@ -392,13 +465,72 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             let targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "selectGraphic" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
         }
-    
-        
-        
     }
     
     
+    // 検索からの画像ロード
+    func sarchLoad(imgName: String){
+        /// 保存した画像を表示する時
+        // モードを設定し直し
+        drawingView.drawMode = ACEDrawingMode.Scale
+        // 画像を取得
+       let image:UIImage = UIImage(named: imgName)!
+        // 画像をViewに表示
+        drawingView.loadImage(image)
+    }
     
+    
+    //エラー画面
+    func ErrorWindow(){
+    let alertController = UIAlertController(title: "エラー", message: "予期せぬエラーが発生しました。\n再起動しますか?", preferredStyle: .Alert)
+    let otherAction = UIAlertAction(title: "OK", style: .Default) {
+        action in print("pushed OK!")
+    }
+    let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel, handler: nil)
+        
+    alertController.addAction(otherAction)
+    alertController.addAction(cancelAction)
+    presentViewController(alertController, animated: true, completion: nil)
+    
+    }
+    
+    //list on/of
+    func CollisionDetection(view: UIView,ONOFF:Bool){
+        if ONOFF {
+            Tooltable.userInteractionEnabled = true
+            Ellipse_F.userInteractionEnabled = true
+            Ellipse_S.userInteractionEnabled = true
+            Rect_F.userInteractionEnabled = true
+            Rect_S.userInteractionEnabled = true
+            L_width1.userInteractionEnabled = true
+            L_width2.userInteractionEnabled = true
+            L_width3.userInteractionEnabled = true
+            Reset.userInteractionEnabled = true
+            UnDo.userInteractionEnabled = true
+            ReDo.userInteractionEnabled = true
+            drawingView.userInteractionEnabled = true
+            
+            view.hidden = true
+            
+        }else {
+            Tooltable.userInteractionEnabled = false
+            Ellipse_F.userInteractionEnabled = false
+            Ellipse_S.userInteractionEnabled = false
+            Rect_F.userInteractionEnabled = false
+            Rect_S.userInteractionEnabled = false
+            L_width1.userInteractionEnabled = false
+            L_width2.userInteractionEnabled = false
+            L_width3.userInteractionEnabled = false
+            Reset.userInteractionEnabled = false
+            UnDo.userInteractionEnabled = false
+            ReDo.userInteractionEnabled = false
+            drawingView.userInteractionEnabled = false
+            view.hidden = false
+
+        }
+        
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

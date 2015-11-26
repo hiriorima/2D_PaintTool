@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sXb-JH-g8D">
@@ -166,7 +166,7 @@
                                 <animations/>
                                 <state key="normal" title="Button" image="UnDo.png"/>
                                 <connections>
-                                    <action selector="Undo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="OFI-2p-eg8"/>
+                                    <action selector="UnDo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="Czd-wz-JWc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iq2-MB-Lbw" userLabel="Redo">
@@ -175,7 +175,7 @@
                                 <animations/>
                                 <state key="normal" title="Button" image="ReDo.png"/>
                                 <connections>
-                                    <action selector="Redo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="QQ1-Ox-nJ6"/>
+                                    <action selector="ReDo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="2ba-z4-8yK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Og1-W9-VdO" userLabel="Reset">
@@ -416,7 +416,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" id="CnY-3U-pUb">
-                                <rect key="frame" x="187" y="12" width="646" height="340"/>
+                                <rect key="frame" x="189" y="35" width="646" height="340"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qhi-kP-OKs">
@@ -447,7 +447,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="onq-be-eNI">
@@ -455,11 +455,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0JD-Be-Ytb">
-                                        <rect key="frame" x="134" y="209" width="378" height="21"/>
+                                        <rect key="frame" x="134" y="204" width="378" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
@@ -467,7 +467,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="opo-Kx-BHi">
-                                        <rect key="frame" x="134" y="246" width="378" height="21"/>
+                                        <rect key="frame" x="134" y="241" width="378" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
@@ -475,17 +475,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rJ4-9m-lpY">
-                                        <rect key="frame" x="308" y="283" width="30" height="30"/>
+                                        <rect key="frame" x="188" y="285" width="271" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <animations/>
-                                        <state key="normal" title="保存"/>
+                                        <color key="backgroundColor" red="0.058823529411764705" green="0.24313725490196078" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="保存">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="SavePost:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="SRc-Eg-kBj"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.72083061933517456" green="0.93132340908050537" blue="0.93850016593933105" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.97647058819999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <animations/>
@@ -501,14 +504,16 @@
                         <outlet property="L_width2" destination="YLe-ht-oSf" id="DVd-ck-PXQ"/>
                         <outlet property="L_width3" destination="Y3x-0Y-fOY" id="XMh-YI-cCT"/>
                         <outlet property="MenuList" destination="kRA-I7-asY" id="gAz-i1-eju"/>
+                        <outlet property="ReDo" destination="Iq2-MB-Lbw" id="2pJ-EL-Yo4"/>
                         <outlet property="Rect_F" destination="QNn-AC-Xkq" id="7Zd-Z9-234"/>
                         <outlet property="Rect_S" destination="fce-sp-gRZ" id="z7r-Ar-mHr"/>
                         <outlet property="Reset" destination="Og1-W9-VdO" id="GG7-1q-0Jl"/>
                         <outlet property="SCategoryError" destination="opo-Kx-BHi" id="Ayv-4b-uKN"/>
-                        <outlet property="STittleError" destination="0JD-Be-Ytb" id="EgT-dE-4gz"/>
+                        <outlet property="STitleError" destination="0JD-Be-Ytb" id="Itg-no-Enw"/>
                         <outlet property="SaveView" destination="CnY-3U-pUb" id="I6Z-Hw-cXS"/>
-                        <outlet property="TittleField" destination="ffZ-8z-LBg" id="wKB-BE-a4I"/>
+                        <outlet property="TitleField" destination="ffZ-8z-LBg" id="5WN-6B-FXD"/>
                         <outlet property="Tooltable" destination="RFe-pe-Wmz" id="lxG-dh-bl2"/>
+                        <outlet property="UnDo" destination="T2n-VU-F0V" id="tMX-yC-OqB"/>
                         <outlet property="drawingView" destination="T9I-bu-98m" id="NXk-nF-a5x"/>
                     </connections>
                 </viewController>

@@ -47,6 +47,7 @@
 		20977AC31C034D8D00E38764 /* Select2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20977AC21C034D8D00E38764 /* Select2.png */; };
 		20977AC51C034D9800E38764 /* Select3.png in Resources */ = {isa = PBXBuildFile; fileRef = 20977AC41C034D9800E38764 /* Select3.png */; };
 		20977AC71C03545300E38764 /* S_Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 20977AC61C03545300E38764 /* S_Home.png */; };
+		20F3654B1C05A20A00E1A48A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F3654A1C05A20900E1A48A /* Request.swift */; };
 		51B22FA03648336797454767 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE39F2205BC60ABE1C692CC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		20977AC21C034D8D00E38764 /* Select2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Select2.png; path = images/Select2.png; sourceTree = SOURCE_ROOT; };
 		20977AC41C034D9800E38764 /* Select3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Select3.png; path = images/Select3.png; sourceTree = SOURCE_ROOT; };
 		20977AC61C03545300E38764 /* S_Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = S_Home.png; path = images/S_Home.png; sourceTree = SOURCE_ROOT; };
+		20F3654A1C05A20900E1A48A /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		C083291C6FCA31F627B9230D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DCB6910B68B9D57289F53D6E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				20945CED1BE77B52004520C0 /* images */,
 				0DF5660A1BE3596C00D0EE2E /* AppDelegate.swift */,
 				0DF5660C1BE3596C00D0EE2E /* ViewController.swift */,
+				20F3654A1C05A20900E1A48A /* Request.swift */,
 				20211B061BE39FEC0065E70F /* PaintController.swift */,
 				0DF5660E1BE3596C00D0EE2E /* Main.storyboard */,
 				20945D521BE8C2DB004520C0 /* testView.swift */,
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20945D531BE8C2DB004520C0 /* testView.swift in Sources */,
+				20F3654B1C05A20A00E1A48A /* Request.swift in Sources */,
 				20211B071BE39FEC0065E70F /* PaintController.swift in Sources */,
 				20945D571BE8D1DA004520C0 /* testTable.swift in Sources */,
 				0DF5660D1BE3596C00D0EE2E /* ViewController.swift in Sources */,
