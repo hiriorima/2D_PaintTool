@@ -8,12 +8,18 @@
 
 import UIKit
 import ACEDrawingView
+
 class PaintController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource,UIToolbarDelegate{
 
 
     // view & button　の宣言
     @IBOutlet var drawingView: ACEDrawingView!
-    @IBOutlet var MenuList: UIView!
+    @IBOutlet var MenuList: SpringView!
+    @IBOutlet var User: UIImageView!
+    @IBOutlet var Username: UILabel!
+    
+    
+    
     
     @IBOutlet var Ellipse_S: UIButton!
     @IBOutlet var Ellipse_F: UIButton!
@@ -24,7 +30,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var L_width2: UIButton!
     @IBOutlet var L_width3: UIButton!
     
-    @IBOutlet var Reset: UIButton!
+
+
+    
+    @IBOutlet var Reset: SpringButton!
     @IBOutlet var UnDo: UIButton!
     @IBOutlet var ReDo: UIButton!
     
@@ -37,8 +46,9 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
      let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
     
     
-    @IBOutlet weak var SaveView: UIView!
-    let CategoryArray: NSArray = ["キャラクター","しょくぶつ","しょくじ","じんぶつ","どうぶつ","のりもの","まーく","そのた"]
+   
+    @IBOutlet var SaveView: SpringView!
+    let CategoryArray: NSArray = ["キャラクター","しょくぶつ","たべもの","じんぶつ","どうぶつ","のりもの","まーく","そのた"]
         
     
     
@@ -90,13 +100,13 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         //TextFieldをpickerViewとToolVerに関連づけ
         CategoryField.inputAccessoryView = myToolBar
-        
+        saveButton.layer.cornerRadius = 8
     }
     
     //画面が表示される直前//
      override func viewWillAppear(animated: Bool){
+        
         //選択領域の概形選択&リセットボタンの画像設定
-
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         let selectGraphic = appDelegate.selectGraphic
         
@@ -125,13 +135,40 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             alertController.addAction(defaultAction)
             
             presentViewController(alertController, animated: true, completion: nil)
-            
         }
+        
+        //Userの種類と名前の表示
+        let UserID: String = ""
+        let Gest:UIImage? = UIImage(named: "Gest.png")
+        let Member:UIImage? = UIImage(named: "Member.png")
+        if(UserID != ""){
+        User.image = Member
+        Username.text = UserID
+            
+        }else{
+        User.image = Gest
+        Username.text = "Gest"
+        }
+        
+        // 検索からの画像ロード
+       /* let SImg: UIImage
+        if SImg != nil{
+        drawingView.loadImage(SImg)
+        }*/
+        
+
+        
+        
+        
     }
     
     @IBAction func MenuBack(sender: AnyObject) {
         CollisionDetection(MenuList, ONOFF: true)
+        MenuList.animation = "fadeOut"
+        MenuList.animate()
+        
     }
+    
     
     
     
@@ -207,9 +244,12 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     // 全消し
+   
     @IBAction func Reset(sender: AnyObject) {
-        drawingView.clear()}
-
+        drawingView.clear()
+        Reset.animation = "flipX"
+        Reset.animate()
+    }
     
     
     // ToolTable作成 //
@@ -241,6 +281,8 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     switch indexPath.row{
     case 0:
         CollisionDetection(MenuList, ONOFF: false)
+        MenuList.animation = "slideRight"
+        MenuList.animate()
     case 1:
         drawingView.drawTool = ACEDrawingToolTypePen
     case 2:
@@ -276,6 +318,9 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet weak var SCategoryError: UILabel!
     @IBOutlet weak var TitleField: UITextField!
     @IBOutlet weak var CategoryField: UITextField!
+    @IBOutlet var saveButton: SpringButton!
+    
+    
     var PostTitle :String = ""
     var PostCategory :Int = 10
     
@@ -286,8 +331,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         MenuList.hidden = true
         CollisionDetection(SaveView, ONOFF: false)
-        
-        TitleField.placeholder = "1~15字までの間で入力してください"
+        SaveView.animation = "slideDown"
+        SaveView.animate()
+        CategoryField.placeholder = "カテゴリを選択してください"
+        TitleField.placeholder = "タイトルを入力してください(1~15文字)"
         
     }
     
@@ -367,15 +414,14 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             ErrorWindow()
                 }
         
-        let PostImg: String = Image2String(drawingView.image)!;
-
-            
-            
         
         
-        if SaveFlag.1 == 1 && SaveFlag.0 == 1{
+        if SaveFlag.1 == 1 && SaveFlag.0 == 1 && drawingView.image != nil{
+            
+            let PostImg: String = Image2String(drawingView.image)!;
+            
             //送信文
-            SavePostTest(UserID,Title: PostTitle,Category: PostCategory,IMG: PostImg)
+            SavePost(UserID,Title: PostTitle,Category: PostCategory,IMG: PostImg)
             
             print(PostTitle)
             print(PostTitle.characters.count)
@@ -385,22 +431,48 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             let alertController = UIAlertController(title: "保存完了", message: "Webページからダウンロードしてご使用ください。", preferredStyle: .Alert)
            
             let defaultAction = UIAlertAction(title: "OK", style: .Default) {
-                action in self.CollisionDetection(self.SaveView, ONOFF: true)
+                action in
+               
+                self.CollisionDetection(self.SaveView, ONOFF: true)
+                self.SaveView.animation = "fadeOut"
+                self.SaveView.animate()
+                 self.view.endEditing(true);
             }
             alertController.addAction(defaultAction)
             
             presentViewController(alertController, animated: true, completion: nil)
-                       
             
+        }else{
+            saveButton.animation = "shake"
+            saveButton.animate()
         }
-        
-        
-        
     }
     
     
     //ポストの処理
-    func SavePostTest(UserID: String ,Title: String, Category: Int, IMG: String) {
+    func PostTest(UserID: String ,PW:String) {
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string:"http://paint.fablabhakodate.org/loginuser")!
+        let body:NSMutableDictionary =
+        NSMutableDictionary()
+        
+        body.setValue(PW, forKey: "password")
+        body.setValue(UserID, forKey: "userid")
+       
+        
+        
+        request.post(url, body: body, completionHandler: {data, response, error in
+            //code
+        })
+    }
+
+    
+    
+    
+    
+    //ポストの処理
+    func SavePost(UserID: String ,Title: String, Category: Int, IMG: String) {
         let request: Request = Request()
         
         let url: NSURL = NSURL(string:"http://paint.fablabhakodate.org/addpic")!
@@ -420,6 +492,8 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBAction func SaveCancel(sender: AnyObject) {
         CollisionDetection(SaveView, ONOFF: true)
+        SaveView.animation = "fadeOut"
+        SaveView.animate()
     }
     
     
@@ -450,9 +524,12 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             // 保存ウィンドウの表示
             self.MenuList.hidden = true
             self.CollisionDetection(self.SaveView, ONOFF: false)
+            self.SaveView.animation = "slideDown"
+            self.SaveView.animate()
         }
         let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel) {
             action in
+           
             //概形選択へ移動
             let targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "selectGraphic" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
@@ -467,17 +544,6 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    
-    // 検索からの画像ロード
-    func sarchLoad(imgName: String){
-        /// 保存した画像を表示する時
-        // モードを設定し直し
-        drawingView.drawMode = ACEDrawingMode.Scale
-        // 画像を取得
-       let image:UIImage = UIImage(named: imgName)!
-        // 画像をViewに表示
-        drawingView.loadImage(image)
-    }
     
     
     //エラー画面
@@ -495,7 +561,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     //list on/of
-    func CollisionDetection(view: UIView,ONOFF:Bool){
+    func CollisionDetection(view: SpringView,ONOFF:Bool){
         if ONOFF {
             Tooltable.userInteractionEnabled = true
             Ellipse_F.userInteractionEnabled = true
@@ -509,8 +575,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             UnDo.userInteractionEnabled = true
             ReDo.userInteractionEnabled = true
             drawingView.userInteractionEnabled = true
-            
-            view.hidden = true
+           
             
         }else {
             Tooltable.userInteractionEnabled = false
@@ -539,9 +604,6 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
 
-    
-    
-    
     
     
     
