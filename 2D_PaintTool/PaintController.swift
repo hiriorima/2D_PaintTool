@@ -135,26 +135,39 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         Username.text = "Guest"
         }
         
+        //エッジからのスワイプメニュー表示の規制
+        
         // 検索からの画像ロード
        /* let SImg: UIImage
         if SImg != nil{
         drawingView.loadImage(SImg)
         }*/
-        
-
-        
-        
-        
     }
+    
+    
+    //エッジからのスワイプメニュー表示の規制
+    var SwipeM : Int = 0
     
     @IBAction func MenuBack(sender: AnyObject) {
         CollisionDetection(MenuList, ONOFF: true)
-        
-        
+        SwipeM = 0
     }
     
     
+    @IBAction func SwipeMenuBack(sender: AnyObject) {
+        CollisionDetection(MenuList, ONOFF: true)
+        SwipeM = 0
+    }
     
+    
+    @IBAction func SwipeMenu(sender: AnyObject) {
+        if SwipeM == 0{
+            CollisionDetection(MenuList, ONOFF: false)
+            MenuList.animation = "slideRight"
+            MenuList.animate()
+            SwipeM = 1
+        }
+    }
     
     
     
@@ -519,6 +532,11 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func SaveCancel(sender: AnyObject) {
         CollisionDetection(SaveView, ONOFF: true)
     }
+    
+    @IBAction func SwipeSaveCancel(sender: AnyObject) {
+        CollisionDetection(SaveView, ONOFF: true)   
+    }
+    
     
     
     //画像をNSDataに変換

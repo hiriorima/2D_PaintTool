@@ -97,7 +97,7 @@
                                 <rect key="frame" x="908" y="130" width="91" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
-                                <state key="normal" title="Button" image="ReDo.png"/>
+                                <state key="normal" image="Redo.png"/>
                                 <connections>
                                     <action selector="ReDo:" destination="lAh-mq-XgJ" eventType="touchUpInside" id="2ba-z4-8yK"/>
                                 </connections>
@@ -325,6 +325,7 @@
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.97647058819999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
                                         <integer key="value" value="5"/>
@@ -340,6 +341,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e6M-we-4fC" appends="YES" id="EBc-m3-xR2"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" id="CnY-3U-pUb" customClass="SpringView" customModule="_D_PaintTool" customModuleProvider="target">
                                 <rect key="frame" x="189" y="35" width="646" height="340"/>
@@ -400,11 +404,15 @@
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.97647058819999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="357-NF-5h0" appends="YES" id="N5j-h7-BJC"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Og1-W9-VdO" userLabel="Reset" customClass="SpringButton" customModule="_D_PaintTool" customModuleProvider="target">
                                 <rect key="frame" x="908" y="621" width="91" height="91"/>
@@ -419,6 +427,10 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="A3a-XC-Kb7" appends="YES" id="n2m-40-Gnu"/>
+                        </connections>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -447,6 +459,22 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIF-j2-m09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="e6M-we-4fC">
+                    <connections>
+                        <action selector="SwipeMenuBack:" destination="lAh-mq-XgJ" id="rC9-Mi-0U8"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="A3a-XC-Kb7">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="SwipeMenu:" destination="lAh-mq-XgJ" id="L75-za-cuF"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="357-NF-5h0">
+                    <connections>
+                        <action selector="SwipeSaveCancel:" destination="lAh-mq-XgJ" id="PbS-1h-Ui3"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="780" y="588"/>
         </scene>
@@ -870,9 +898,9 @@
         <image name="MainTittle.png" width="640" height="200"/>
         <image name="MenuBack.png" width="22" height="32"/>
         <image name="NewCreate.png" width="48" height="58"/>
-        <image name="ReDo.png" width="86" height="56"/>
         <image name="Rect_F.png" width="44" height="36"/>
         <image name="Rect_S.png" width="44" height="36"/>
+        <image name="Redo.png" width="86" height="56"/>
         <image name="Reset.png" width="61" height="62"/>
         <image name="S_Home.png" width="78" height="64"/>
         <image name="Save.png" width="58" height="58"/>
