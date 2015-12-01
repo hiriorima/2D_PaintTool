@@ -230,10 +230,24 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     // 全消し
    
     @IBAction func Reset(sender: AnyObject) {
-        drawingView.clear()
-        Reset.animation = "flipX"
-        Reset.animate()
+        
+        let alertController = UIAlertController(title: "Clear", message: "編集したデータを全て削除し、\n白紙に戻しますか?", preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default) {
+            action in
+            
+            self.drawingView.clear()
+            self.Reset.animation = "flipX"
+            self.Reset.animate()
+            
+        }
+        let cancellAction = UIAlertAction(title: "Cancell", style: .Cancel, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        alertController.addAction(cancellAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
+    
     
     
     // ToolTable作成 //
@@ -535,13 +549,13 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     // Home 
     //viewname変更
     @IBAction func Home(sender: AnyObject) {
-        SaveAlert("Home", ViewName: "selectGraphic")
+        SaveAlert("Home", ViewName: "Home")
     }
     
     //検索
     //viewname変更
     @IBAction func Serch(sender: AnyObject) {
-        SaveAlert("検索", ViewName: "selectGraphic")
+        SaveAlert("検索", ViewName: "Search")
     }
     
     
@@ -620,9 +634,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             action in
             
             //概形選択へ移動
+            
             let targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( ViewName )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
-        }
+            }
         
         let cancelAction = UIAlertAction(title: "CANCEL", style: .Cancel, handler: nil)
         
@@ -637,6 +652,9 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     
     }
+    
+    
+
 
 
     override func didReceiveMemoryWarning() {

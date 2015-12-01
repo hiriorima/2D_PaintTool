@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TitleScreenController.swift">
+   </FileRef>
+   <FileRef
       location = "group:2D_PaintTool.xcodeproj">
    </FileRef>
    <FileRef
