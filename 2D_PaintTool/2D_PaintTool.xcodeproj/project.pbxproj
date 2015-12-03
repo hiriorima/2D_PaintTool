@@ -94,6 +94,7 @@
 		207BAF251C0DB6880023228F /* Redo.png in Resources */ = {isa = PBXBuildFile; fileRef = 207BAF241C0DB6880023228F /* Redo.png */; };
 		20C4EE651C0D7E520037CB83 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4EE641C0D7E520037CB83 /* LoginViewController.swift */; };
 		20C4EE671C0D7FF70037CB83 /* AddNewAcountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C4EE661C0D7FF60037CB83 /* AddNewAcountViewController.swift */; };
+		20C9F9A71C0F5D2500A058F4 /* Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 20C9F9A61C0F5D2500A058F4 /* Mask.png */; };
 		20F3654B1C05A20A00E1A48A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F3654A1C05A20900E1A48A /* Request.swift */; };
 		51B22FA03648336797454767 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE39F2205BC60ABE1C692CC /* Pods.framework */; };
 /* End PBXBuildFile section */
@@ -211,6 +212,7 @@
 		207BAF241C0DB6880023228F /* Redo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redo.png; sourceTree = "<group>"; };
 		20C4EE641C0D7E520037CB83 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20C4EE661C0D7FF60037CB83 /* AddNewAcountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewAcountViewController.swift; sourceTree = "<group>"; };
+		20C9F9A61C0F5D2500A058F4 /* Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask.png; sourceTree = "<group>"; };
 		20F3654A1C05A20900E1A48A /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		C083291C6FCA31F627B9230D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DCB6910B68B9D57289F53D6E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				207BAED91C0DA95C0023228F /* login.png */,
 				207BAEDA1C0DA95C0023228F /* MainTittle.png */,
 				207BAEDB1C0DA95C0023228F /* mark.png */,
+				20C9F9A61C0F5D2500A058F4 /* Mask.png */,
 				207BAEDC1C0DA95C0023228F /* Member.png */,
 				207BAEDD1C0DA95C0023228F /* member_login.png */,
 				207BAEDF1C0DA95C0023228F /* Menu.png */,
@@ -551,6 +554,7 @@
 				207BAF051C0DA95C0023228F /* L_width3.png in Resources */,
 				207BAF011C0DA95C0023228F /* Home.png in Resources */,
 				207BAEF71C0DA95C0023228F /* createAccountButton.png in Resources */,
+				20C9F9A71C0F5D2500A058F4 /* Mask.png in Resources */,
 				207BAF121C0DA95C0023228F /* plant.png in Resources */,
 				0DF566121BE3596C00D0EE2E /* Assets.xcassets in Resources */,
 				207BAF001C0DA95C0023228F /* guest_login.png in Resources */,

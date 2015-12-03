@@ -15,6 +15,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     // view & button　の宣言
     @IBOutlet var drawingView: ACEDrawingView!
     @IBOutlet var MenuList: SpringView!
+    @IBOutlet var Logout: UIButton!
     @IBOutlet var User: UIImageView!
     @IBOutlet var Username: UILabel!
     
@@ -39,7 +40,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     // 保存フラグ
     var SaveFlag = (0,0)
-
+    //概形フラグ
+    var selectedGraphic :Int = 0
+    //Maskイメージ
+    var maskImage: UIImage = UIImage(named: "mask.png")!
     
     
     @IBOutlet var Tooltable: UITableView!
@@ -108,9 +112,9 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         //選択領域の概形選択&リセットボタンの画像設定
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        let selectGraphic = appDelegate.selectGraphic
+          selectedGraphic = appDelegate.selectGraphic
         
-        switch selectGraphic{
+        switch selectedGraphic{
         case 1:
             self.drawingView.layer.cornerRadius = 325
             self.drawingView.layer.masksToBounds = true
@@ -219,14 +223,14 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     // 線の太さ
     @IBAction func Width1(sender: AnyObject) {
-        drawingView.lineWidth = 10.0
+        drawingView.lineWidth = 15.0
         L_width1.backgroundColor = select
         L_width2.backgroundColor = clear
         L_width3.backgroundColor = clear
     }
    
     @IBAction func Width2(sender: AnyObject) {
-        drawingView.lineWidth = 20.0
+        drawingView.lineWidth = 22.5
         L_width1.backgroundColor = clear
         L_width2.backgroundColor = select
         L_width3.backgroundColor = clear
@@ -395,6 +399,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     
     
+    
     @IBAction func SavePost(sender: AnyObject) {
         PostTitle = TitleField.text!
         let UserID:String = "testA"
@@ -432,14 +437,37 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         if SaveFlag.1 == 1 && SaveFlag.0 == 1 && drawingView.image != nil{
             
-            let PostImg: String = Image2String(drawingView.image)!;
+            //概形が円の時はくり抜く
+            var PostImg: String
+            
+            switch selectedGraphic{
+             case 1:
+                let CutImg :UIImage = getMaskedImage(drawingView.image)
+            UIGraphicsBeginImageContext(CutImg.size)
+            // バッファにcImageを描画。
+            CutImg.drawAtPoint(CGPoint(x: 0.0, y: 0.0))
+            // バッファからUIImageを生成。
+            let nonLayerImage = UIGraphicsGetImageFromCurrentImageContext()
+            // バッファを解放。
+            UIGraphicsEndImageContext()
+            // PNGフォーマットのNSDataをUIImageから作成。
+                PostImg = Image2String(nonLayerImage)!
+            case 2:
+                PostImg = Image2String(drawingView.image)!
+            case 3:
+                PostImg = Image2String(drawingView.image)!
+            default:
+                PostImg  = ""
+            }
+
+          
             
             do {
                 let reachability = try AMReachability.reachabilityForInternetConnection()
                 if reachability.isReachable() {
                     //インターネット接続あり
                     //送信文
-                    SavePost(UserID,Title: PostTitle,Category: PostCategory,IMG: PostImg)
+                   SavePost(UserID,Title: PostTitle,Category: PostCategory,IMG: PostImg)
                     
                     let alertController = UIAlertController(title: "保存完了", message: "Webページからダウンロードしてご使用ください。", preferredStyle: .Alert)
                     
@@ -549,33 +577,42 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         pngData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         return encodeString
         }
-
             return nil
-        
     }
     
+    //UIimageを円に切り抜く
+    func getMaskedImage(Img:UIImage) -> UIImage {
+        let maskImgre : CGImageRef = maskImage.CGImage!
+        let mask = CGImageMaskCreate(CGImageGetWidth(maskImgre),
+            CGImageGetHeight(maskImgre),
+            CGImageGetBitsPerComponent(maskImgre),
+            CGImageGetBitsPerPixel(maskImgre),
+            CGImageGetBytesPerRow(maskImgre),
+            CGImageGetDataProvider(maskImgre),nil,false)
+        let maskedImageCG: CGImage = CGImageCreateWithMask(Img.CGImage, mask)!
+        let maskedImage = UIImage(CGImage: maskedImageCG)
+        return maskedImage
+    }
     
     
     // 新規作成
     @IBAction func NewCreate(sender: AnyObject) {
-        
             SaveAlert("新規作成", ViewName: "selectGraphic")
-        
     }
     
-    
-    // Home 
     //viewname変更
     @IBAction func Home(sender: AnyObject) {
         SaveAlert("Home", ViewName: "Home")
     }
     
-    //検索
     //viewname変更
     @IBAction func Serch(sender: AnyObject) {
         SaveAlert("検索", ViewName: "Search")
     }
     
+    @IBAction func Logout(sender: AnyObject) {
+        SaveAlert("ログアウト", ViewName: "Title")
+    }
     
     
     
