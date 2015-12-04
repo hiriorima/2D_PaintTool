@@ -379,7 +379,7 @@
         <!--Home Screen Controller-->
         <scene sceneID="Rw4-wI-G2C">
             <objects>
-                <viewController id="br3-Hw-JDU" customClass="HomeScreenController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homescreen" id="br3-Hw-JDU" customClass="HomeScreenController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OWm-YZ-8bS"/>
                         <viewControllerLayoutGuide type="bottom" id="zT1-GU-yU2"/>

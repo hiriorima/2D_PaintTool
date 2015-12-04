@@ -19,7 +19,6 @@ class LoginViewController: UIViewController,
     
     let baseHost = "http://160.16.234.136:3000"
     let oneYearInSeconds = NSTimeInterval(60 * 60 * 24 * 365)
-
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,7 +33,6 @@ class LoginViewController: UIViewController,
         
         request.get(url, completionHandler: { data, response, error in
             // code
-            self.SetCookieActivity()
         })
 
     // Do any additional setup after loading the view.
@@ -167,41 +165,18 @@ class LoginViewController: UIViewController,
         
         let request: Request = Request()
         
-        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/loginuser")!
+        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/signinuser")!
         let body: NSMutableDictionary = NSMutableDictionary()
         body.setValue(userid, forKey: "userid")
         body.setValue(password, forKey: "password")
         
         request.post(url, body: body, completionHandler: { data, response, error in
             // code
-            self.SetCookieActivity()
+             print(data)
         })
 
     }
  
-    func SetCookieActivity(){
-        
-        let cookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
-        
-        let cookies = cookieStorage.cookies
-        for cookie in cookies! {
-            var cookieProperties = [String: AnyObject]()
-            
-            cookieProperties[NSHTTPCookieName] = cookie.name
-            cookieProperties[NSHTTPCookieValue] = cookie.value
-            cookieProperties[NSHTTPCookieDomain] = cookie.domain
-            cookieProperties[NSHTTPCookiePath] = cookie.path
-            cookieProperties[NSHTTPCookieVersion] = NSNumber(integer: cookie.version)
-            cookieProperties[NSHTTPCookieExpires] = cookie.expiresDate
-            cookieProperties[NSHTTPCookieSecure] = cookie.secure
-            
-            // Setting a Cookie
-            if let newCookie = NSHTTPCookie(properties: cookieProperties) {
-                // Made a copy of cookie (cookie can't be set)
-                print("Newcookie: \(newCookie)")
-                NSHTTPCookieStorage.sharedHTTPCookieStorage().setCookie(newCookie)
-            }
-        }
     /*
     // MARK: - Navigation
 
@@ -211,5 +186,5 @@ class LoginViewController: UIViewController,
         // Pass the selected object to the new view controller.
     }
     */
-    }
+    
 }

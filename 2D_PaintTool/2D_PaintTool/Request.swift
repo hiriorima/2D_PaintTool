@@ -10,21 +10,32 @@ import UIKit
 
 class Request {
     let session: NSURLSession = NSURLSession.sharedSession()
+    let nooooUrl = NSURL(string: "http://160.16.234.136/")
     
     // GET METHOD
     func get(url: NSURL, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         
+        let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookiesForURL(nooooUrl!)
+        let header  = NSHTTPCookie.requestHeaderFieldsWithCookies(cookies!)
+       
         request.HTTPMethod = "GET"
+        request.allHTTPHeaderFields = header
+       
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
     }
     
-    // PUT METHOD
+    // POST METHOD
     func post(url: NSURL, body: NSMutableDictionary, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+        
+        let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookiesForURL(nooooUrl!)
+        let header  = NSHTTPCookie.requestHeaderFieldsWithCookies(cookies!)
+        
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         
         request.HTTPMethod = "POST"
+        request.allHTTPHeaderFields = header
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         do {
@@ -37,7 +48,7 @@ class Request {
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
     }
     
-    // POST METHOD
+    // PUT METHOD
     func put(url: NSURL, body: NSMutableDictionary, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
         
@@ -62,4 +73,4 @@ class Request {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
     }
-}
+    }
