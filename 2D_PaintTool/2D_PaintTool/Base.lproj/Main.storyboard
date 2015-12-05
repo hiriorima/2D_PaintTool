@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="ViewController" customModule="_D_PaintTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -462,6 +462,6 @@
         <image name="screens_pre_v2_35.png" width="44" height="45"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ESg-Ka-t7l"/>
+        <segue reference="ke6-jH-Y8Z"/>
     </inferredMetricsTieBreakers>
 </document>

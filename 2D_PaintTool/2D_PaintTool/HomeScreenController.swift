@@ -26,8 +26,8 @@ class HomeScreenController:UIViewController{
         
         // set Usagi List
         //  self.categoryConfig = CategoryConfig(items: items)
-        self.ThumbnailCollection.dataSource = self.categoryConfig
-        self.ThumbnailCollection.delegate = self.categoryConfig
+     //   self.ThumbnailCollection.dataSource = self.categoryConfig
+     //   self.ThumbnailCollection.delegate = self.categoryConfig
         // Do any additional setup after loading the view.
     }
     

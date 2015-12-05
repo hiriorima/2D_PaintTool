@@ -20,6 +20,8 @@ class LoginViewController: UIViewController,
     let baseHost = "http://160.16.234.136:3000"
     let oneYearInSeconds = NSTimeInterval(60 * 60 * 24 * 365)
     
+    var login_id: Bool = false
+    
     override func viewDidLoad() {
     super.viewDidLoad()
     sc.frame = self.view.frame
@@ -161,20 +163,60 @@ class LoginViewController: UIViewController,
         
     }
     
+    /*
+     * ログイン処理
+     */
     func LoginActivity(userid: String, password: String){
         
         let request: Request = Request()
         
         let url: NSURL = NSURL(string: "http://160.16.234.136:3000/signinuser")!
+  
         let body: NSMutableDictionary = NSMutableDictionary()
         body.setValue(userid, forKey: "userid")
         body.setValue(password, forKey: "password")
         
+        var login_flag = false
+    var finish_flag = false
+        
         request.post(url, body: body, completionHandler: { data, response, error in
-            // code
-             print(data)
-        })
-
+           // code
+              do {
+                let json = try NSJSONSerialization.JSONObjectWithData((data)!, options: .MutableContainers) as! NSDictionary
+                if json["userid"] != nil{
+                login_flag = true
+                }else{
+                    print(json)
+                }
+            } catch (let e) {
+                print(e)
+            }
+            finish_flag = true
+            })
+            
+        while(!finish_flag){
+            usleep(10)
+        }
+        
+        if(login_flag){
+        self.ScreenTransition(userid)
+        }
+}
+    
+    func ScreenTransition(userid:String){
+            //AppDelegateのインスタンスを取得
+            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            //appDelegateの変数を操作
+            appDelegate.user_id = userid
+            
+            let HomeScreenViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("homescreen")
+            
+            // アニメーションを設定.
+            HomeScreenViewController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+            
+            // Viewの移動する.
+            self.presentViewController(HomeScreenViewController, animated: true, completion: nil)
     }
  
     /*
