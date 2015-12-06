@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var user_id:String?
+    var user_id:String? = "Guest"
     var images_url: String?
 
 

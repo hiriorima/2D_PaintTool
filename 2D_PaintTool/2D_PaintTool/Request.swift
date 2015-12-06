@@ -10,7 +10,7 @@ import UIKit
 
 class Request {
     let session: NSURLSession = NSURLSession.sharedSession()
-    let nooooUrl = NSURL(string: "http://160.16.234.136/")
+    let nooooUrl = NSURL(string: "http://paint.fablabhakdoate.org/")
     
     // GET METHOD
     func get(url: NSURL, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {

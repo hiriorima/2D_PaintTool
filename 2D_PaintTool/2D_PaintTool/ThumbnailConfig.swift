@@ -8,10 +8,11 @@
 
 import UIKit
 
-class CategoryConfig: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
+class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
 
     
     var items:Array<String> = []
+    var imgs_name:Array<String> = []
     
     init(items: Array<String>) {
         self.items = items
@@ -19,10 +20,18 @@ class CategoryConfig: NSObject, UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:CustomCategoryCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomCategoryCell
+        
+        let cell:CustomThumbnailCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CustomThumbnailCell
+        
+        
+        let url = NSURL(string: items[indexPath.row]);
+        let data = NSData(contentsOfURL:url!)
+        var img = UIImage(data: data!);
         
         // set Name
-        cell.name.text = self.items[indexPath.row];
+        cell.thumbnail.image = img
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.img_name.text = "しらね"
         
         return cell
     }
@@ -32,6 +41,6 @@ class CategoryConfig: NSObject, UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count;
+        return items.count;
     }
 }

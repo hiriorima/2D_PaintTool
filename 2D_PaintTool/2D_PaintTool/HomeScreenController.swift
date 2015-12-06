@@ -10,24 +10,56 @@ import UIKit
 
 class HomeScreenController:UIViewController{
 
-    var categoryConfig:CategoryConfig?
+    var thumbnailConfig:ThumbnailConfig?
     
     @IBOutlet weak var ThumbnailCollection: UICollectionView!
     
+    @IBOutlet weak var username: UILabel!
+    
+    var finish_flag: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create Usagi
-        var items:Array<String> = []
-        for ( var i = 1, n = 20 ; i <= n ; i++ ) {
-            items.append("Usagi"+i.description)
+        
+        //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        username.text = appDelegate.user_id! + "   さん"
+        
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string: "http://paint.fablabhakodate.org/imgshow?category=-1")!
+        
+        // create ThumbnailCollection
+        var images_url:Array<String> = []
+        
+        request.get(url, completionHandler: { data, response, error in
+            // code
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData((data)!, options: .MutableContainers) as! NSArray
+                
+                for ( var i = 0, n = json.count ; i < n ; i++ ) {
+                    let dictionary  = json[i]
+                    images_url.append(dictionary["filedata"] as! String)
+                    
+                    print(images_url)
+                }
+            } catch (let e) {
+                print(e)
+            }
+            self.finish_flag = true
+        })
+
+        
+        while(!finish_flag){
+            usleep(10)
         }
         
         // set Usagi List
-        //  self.categoryConfig = CategoryConfig(items: items)
-     //   self.ThumbnailCollection.dataSource = self.categoryConfig
-     //   self.ThumbnailCollection.delegate = self.categoryConfig
+        self.thumbnailConfig = ThumbnailConfig(items: images_url)
+       ThumbnailCollection.dataSource = self.thumbnailConfig
+       ThumbnailCollection.delegate = self.thumbnailConfig
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +67,5 @@ class HomeScreenController:UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
     
 }

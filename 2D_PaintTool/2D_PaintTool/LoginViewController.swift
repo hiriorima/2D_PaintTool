@@ -17,7 +17,7 @@ class LoginViewController: UIViewController,
     
     private var txtActiveField = UITextField()
     
-    let baseHost = "http://160.16.234.136:3000"
+    let baseHost = "http://paint.fablabhakodate.org/"
     let oneYearInSeconds = NSTimeInterval(60 * 60 * 24 * 365)
     
     var login_id: Bool = false
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController,
         
         let request: Request = Request()
         
-        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/noooo")!
+        let url: NSURL = NSURL(string: "http://paint.fablabhakodate.org/noooo")!
         
         request.get(url, completionHandler: { data, response, error in
             // code
@@ -170,14 +170,14 @@ class LoginViewController: UIViewController,
         
         let request: Request = Request()
         
-        let url: NSURL = NSURL(string: "http://160.16.234.136:3000/signinuser")!
+        let url: NSURL = NSURL(string: "http://paint.fablabhakodate.org/signinuser")!
   
         let body: NSMutableDictionary = NSMutableDictionary()
         body.setValue(userid, forKey: "userid")
         body.setValue(password, forKey: "password")
         
         var login_flag = false
-    var finish_flag = false
+        var finish_flag = false
         
         request.post(url, body: body, completionHandler: { data, response, error in
            // code
@@ -200,6 +200,9 @@ class LoginViewController: UIViewController,
         
         if(login_flag){
         self.ScreenTransition(userid)
+        }else{
+            //ToDo ログインできな〜〜〜い
+            print("ログインできませんでした")
         }
 }
     

@@ -10,25 +10,67 @@ import UIKit
 
 class SearchScreenController: UIViewController{
 
-    var categoryConfig:CategoryConfig?
+    var thumbnailConfig:ThumbnailConfig?
+    var categoryButtonConfig:CategoryButtonConfig?
     
-    @IBOutlet weak var CategoryCollection: UICollectionView!
+    @IBOutlet weak var CategoryButtonCollection: UICollectionView!
+    @IBOutlet weak var CategoryThumbnail: UICollectionView!
+    
+    
+    @IBOutlet weak var homeButton: UIButton!
+    
+    var finish_flag: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // create Usagi
-        var items:Array<String> = []
-        for ( var i = 1, n = 20 ; i <= n ; i++ ) {
-            items.append("Usagi"+i.description)
+        let request: Request = Request()
+        
+        let url: NSURL = NSURL(string: "http://paint.fablabhakodate.org/imgshow?category=1")!
+        
+        // create ThumbnailCollection
+        var images_url:Array<String> = []
+        
+        request.get(url, completionHandler: { data, response, error in
+            // code
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData((data)!, options: .MutableContainers) as! NSArray
+                
+                for ( var i = 0, n = json.count ; i < n ; i++ ) {
+                    let dictionary  = json[i]
+                    images_url.append(dictionary["filedata"] as! String)
+                    
+                    print(images_url)
+                }
+            } catch (let e) {
+                print(e)
+            }
+            self.finish_flag = true
+        })
+        
+        
+        while(!finish_flag){
+            usleep(10)
         }
         
-        // set Usagi List
-        self.categoryConfig = CategoryConfig(items: items)
-        self.CategoryCollection.dataSource = self.categoryConfig
-        self.CategoryCollection.delegate = self.categoryConfig
-       // CategoryCollection.dataSource = self
-        // Do any additional setup after loading the view.
+        self.thumbnailConfig = ThumbnailConfig(items: images_url)
+        CategoryThumbnail.dataSource = self.thumbnailConfig
+        CategoryThumbnail.delegate = self.thumbnailConfig
+        
+        let categoryImg:Array<String> =
+        ["character.png",
+            "plant.png",
+            "eat.png",
+            "human.png",
+            "animal.png",
+        "car.png",
+        "mark.png",
+        "etc.png"]
+
+      self.categoryButtonConfig = CategoryButtonConfig(items: categoryImg)
+        CategoryButtonCollection.dataSource = self.categoryButtonConfig
+        CategoryButtonCollection.delegate = self.categoryButtonConfig
+        
     }
 
     override func didReceiveMemoryWarning() {
