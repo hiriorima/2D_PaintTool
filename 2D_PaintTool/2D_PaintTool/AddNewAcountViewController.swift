@@ -1,10 +1,11 @@
 //
-//  AddNewAcountViewController.swift
+//  AddNewAcountController.swift
 //  2D_PaintTool
 //
-//  Created by 会津慎弥 on 2015/10/31.
+//  Created by 蛯名真紀 on 2015/12/01.
 //  Copyright © 2015年 会津慎弥. All rights reserved.
 //
+
 
 import UIKit
 
@@ -32,7 +33,7 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,13 +49,13 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         txtActiveField = sender
         if(sender == IDInputField){
             if(sender.text! == "IDを入力してください(英数字3~10字)"){
-            sender.text = ""
-        }
+                sender.text = ""
+            }
         }else if(sender == PWInputField){
             sender.secureTextEntry = true
-        if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
-            sender.text = ""
-        }
+            if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
+                sender.text = ""
+            }
         }else if(sender == PWReinputField){
             sender.secureTextEntry = true
             if(sender.text! == "パスワードをもう一度入力してください(英数字4~8字)"){
@@ -74,7 +75,7 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         if(textField == IDInputField){
             maxLength = 11
         }else if(textField == PWInputField || textField == PWReinputField){
-         maxLength = 9
+            maxLength = 9
         }
         
         // 入力済みの文字と入力された文字を合わせて取得.
@@ -111,14 +112,14 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
             }
         }
     }
-  
+    
     /*
     キーボード以外をタップするとキーボードを閉じる
     */
     @IBAction func TapScreen(sender: UITapGestureRecognizer) {
-    self.view.endEditing(true)
+        self.view.endEditing(true)
     }
-
+    
     /*
     Returnをタップするとキーボードを閉じる
     */
@@ -146,7 +147,7 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         var txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height + 8.0
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-
+        
         if txtLimit >= kbdLimit {
             sc.contentOffset.y = txtLimit - kbdLimit
         }
@@ -155,7 +156,7 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     func handleKeyboardWillHideNotification(notification: NSNotification) {
         sc.contentOffset.y = 0
     }
-   
+    
     
     @IBAction func TapAddNewAccount(sender: UIButton) {
         
@@ -164,14 +165,14 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         let String_RePW = PWReinputField.text
         
         //何も入力していない場合,英数字以外が入力されている場合
-    /*    if(String_ID == "IDを入力してください(英数字3~10字)"){
-            ErrorLabel.text = "IDを入力してください"
+        /*    if(String_ID == "IDを入力してください(英数字3~10字)"){
+        ErrorLabel.text = "IDを入力してください"
         }else if(String_PW == "パスワードを入力してください(英数字4~8字)"){
-            ErrorLabel.text = "パスワードを入力してください"
+        ErrorLabel.text = "パスワードを入力してください"
         }else if(String_RePW == "パスワードをもう一度入力してください(英数字4~8字)"){
-            ErrorLabel.text = "パスワードをもう一度入力してください"
+        ErrorLabel.text = "パスワードをもう一度入力してください"
         }else if(String_ID ){
-            AddNewAccount();
+        AddNewAccount();
         }*/
         
         AddNewAccountActivity(String_ID!, password: String_PW!,password_confirmation: String_RePW!);
@@ -193,12 +194,12 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

@@ -10,12 +10,12 @@ import UIKit
 
 class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
 
-    
     var items:Array<String> = []
     var imgs_name:Array<String> = []
     
-    init(items: Array<String>) {
+    init(items: Array<String>,imgs_name: Array<String>) {
         self.items = items
+        self.imgs_name = imgs_name
         super.init()
     }
     
@@ -25,13 +25,14 @@ class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         
         let url = NSURL(string: items[indexPath.row]);
-        let data = NSData(contentsOfURL:url!)
-        var img = UIImage(data: data!);
+        print(items[indexPath.row])
+       let data = NSData(contentsOfURL:url!)
+        let img = UIImage(data: data!);
         
         // set Name
         cell.thumbnail.image = img
         cell.backgroundColor = UIColor.whiteColor()
-        cell.img_name.text = "しらね"
+        cell.img_name.text = imgs_name[indexPath.row]
         
         return cell
     }
@@ -42,5 +43,11 @@ class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count;
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        //Todo ここで画像データをデリゲートに投げて編集画面へ画面遷移する!!
+        
     }
 }

@@ -2,9 +2,10 @@
 //  Request.swift
 //  2D_PaintTool
 //
-//  Created by 会津慎弥 on 2015/11/26.
+//  Created by 蛯名真紀 on 2015/11/25.
 //  Copyright © 2015年 会津慎弥. All rights reserved.
 //
+
 
 import UIKit
 
@@ -18,10 +19,10 @@ class Request {
         
         let cookies = NSHTTPCookieStorage.sharedHTTPCookieStorage().cookiesForURL(nooooUrl!)
         let header  = NSHTTPCookie.requestHeaderFieldsWithCookies(cookies!)
-       
+        
         request.HTTPMethod = "GET"
         request.allHTTPHeaderFields = header
-       
+        
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
     }
@@ -73,4 +74,4 @@ class Request {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
     }
-    }
+}
