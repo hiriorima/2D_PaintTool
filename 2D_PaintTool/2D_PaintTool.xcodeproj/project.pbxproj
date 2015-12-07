@@ -13,6 +13,7 @@
 		0DF566151BE3596C00D0EE2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF566131BE3596C00D0EE2E /* LaunchScreen.storyboard */; };
 		0DF566201BE3596C00D0EE2E /* _D_PaintToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5661F1BE3596C00D0EE2E /* _D_PaintToolTests.swift */; };
 		0DF5662B1BE3596C00D0EE2E /* _D_PaintToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5662A1BE3596C00D0EE2E /* _D_PaintToolUITests.swift */; };
+		200031B41C1607540069245C /* TitleScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200031B31C1607540069245C /* TitleScreenController.swift */; };
 		20211B071BE39FEC0065E70F /* PaintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20211B061BE39FEC0065E70F /* PaintController.swift */; };
 		202B27AF1C075D3B003286B1 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B27911C075D3B003286B1 /* AsyncButton.swift */; };
 		202B27B01C075D3B003286B1 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B27921C075D3B003286B1 /* AsyncImageView.swift */; };
@@ -130,6 +131,7 @@
 		0DF5662A1BE3596C00D0EE2E /* _D_PaintToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _D_PaintToolUITests.swift; sourceTree = "<group>"; };
 		0DF5662C1BE3596C00D0EE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EE39F2205BC60ABE1C692CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		200031B31C1607540069245C /* TitleScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleScreenController.swift; path = ../TitleScreenController.swift; sourceTree = "<group>"; };
 		20211B061BE39FEC0065E70F /* PaintController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaintController.swift; path = ../PaintController.swift; sourceTree = "<group>"; };
 		202B27911C075D3B003286B1 /* AsyncButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
 		202B27921C075D3B003286B1 /* AsyncImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				207BAEC51C0DA95C0023228F /* images */,
 				202B27901C075D3B003286B1 /* Spring */,
 				0DF5660A1BE3596C00D0EE2E /* AppDelegate.swift */,
+				200031B31C1607540069245C /* TitleScreenController.swift */,
 				202C36A01C08334300136525 /* AMReachability.swift */,
 				20F3654A1C05A20900E1A48A /* Request.swift */,
 				20211B061BE39FEC0065E70F /* PaintController.swift */,
@@ -677,6 +680,7 @@
 				202B27B21C075D3B003286B1 /* BlurView.swift in Sources */,
 				202B27BA1C075D3B003286B1 /* ImageLoader.swift in Sources */,
 				202B27C71C075D3C003286B1 /* SpringTextView.swift in Sources */,
+				200031B41C1607540069245C /* TitleScreenController.swift in Sources */,
 				202B27BF1C075D3B003286B1 /* Misc.swift in Sources */,
 				0DF5660B1BE3596C00D0EE2E /* AppDelegate.swift in Sources */,
 				202B27B91C075D3B003286B1 /* DesignableView.swift in Sources */,
