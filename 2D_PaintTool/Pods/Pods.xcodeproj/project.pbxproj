@@ -464,6 +464,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					F23EF643357DE4902A2E6096F77BF758 = {
+						DevelopmentTeam = 2YEG253Z5M;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -593,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B0C0CBE839E2138C8F0A8A3F6F1D55A /* ACEDrawingView.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -608,6 +614,7 @@
 				MODULEMAP_FILE = "Target Support Files/ACEDrawingView/ACEDrawingView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = ACEDrawingView;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -740,6 +747,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B0C0CBE839E2138C8F0A8A3F6F1D55A /* ACEDrawingView.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -755,6 +763,7 @@
 				MODULEMAP_FILE = "Target Support Files/ACEDrawingView/ACEDrawingView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = ACEDrawingView;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
