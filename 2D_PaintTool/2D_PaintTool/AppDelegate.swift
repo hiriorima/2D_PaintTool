@@ -13,10 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var selectGraphic:Int! = 0
+     var viewController: SearchScreenController? = nil
 
     var user_id:String? = "Guest"
     var images_url: String?
     var category_number :String? = "0"
+    var searchImg:UIImage? = nil
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

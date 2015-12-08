@@ -43,16 +43,14 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     //概形フラグ
     var selectedGraphic :Int = 0
     //Maskイメージ
-    var maskImage: UIImage = UIImage(named: "mask.png")!
-    
-    
-    @IBOutlet var Tooltable: UITableView!
-     let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
-    
-    
-   
+    var maskImage: UIImage = UIImage(named: "Mask.png")!
     @IBOutlet var SaveView: SpringView!
     let CategoryArray: NSArray = ["キャラクター","しょくぶつ","たべもの","じんぶつ","どうぶつ","のりもの","まーく","そのた"]
+    
+    @IBOutlet var Tooltable: UITableView!
+    let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
+   
+    
         
     
     
@@ -127,25 +125,22 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         
         //Userの種類と名前の表示
-        let UserID: String = ""
-        let Guest:UIImage? = UIImage(named: "Guest.png")
-        let Member:UIImage? = UIImage(named: "Member.png")
-        if(UserID != ""){
+         Username.text = appDelegate.user_id
+        let Guest:UIImage = UIImage(named: "Guest.png")!
+        let Member:UIImage = UIImage(named: "Member.png")!
+        if(appDelegate.user_id != "Guest"){
         User.image = Member
-        Username.text = UserID
-            
         }else{
         User.image = Guest
-        Username.text = "Guest"
         }
         
-        //エッジからのスワイプメニュー表示の規制
+        
         
         // 検索からの画像ロード
-       /* let SImg: UIImage
-        if SImg != nil{
-        drawingView.loadImage(SImg)
-        }*/
+        if appDelegate.searchImg != nil{
+        drawingView.loadImage(appDelegate.searchImg)
+            appDelegate.searchImg = nil
+        }
     }
     
     
@@ -503,11 +498,6 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 ErrorWindow()
             }
             
-            
-          /*  print(PostTitle)
-            print(PostTitle.characters.count)
-            print(CategoryField.text)
-            print(PostCategory)*/
 
         }else{
             saveButton.animation = "shake"
@@ -607,7 +597,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     //viewname変更
     @IBAction func Serch(sender: AnyObject) {
-        SaveAlert("検索", ViewName: "Search")
+        SaveAlert("検索", ViewName: "searchscreen")
     }
     
     @IBAction func Logout(sender: AnyObject) {

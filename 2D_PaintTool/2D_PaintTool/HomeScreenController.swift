@@ -16,6 +16,7 @@ class HomeScreenController:UIViewController{
     @IBOutlet weak var ThumbnailCollection: UICollectionView!
     
     @IBOutlet weak var username: UILabel!
+    @IBOutlet var user: UIImageView!
     
     var finish_flag: Bool = false
     
@@ -26,7 +27,16 @@ class HomeScreenController:UIViewController{
         //AppDelegateのインスタンスを取得
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        username.text = appDelegate.user_id! + "   さん"
+        username.text = appDelegate.user_id!
+        let Guest:UIImage = UIImage(named: "Guest.png")!
+        let Member:UIImage = UIImage(named: "Member.png")!
+        if(appDelegate.user_id != "Guest"){
+            user.image = Member
+        }else{
+            user.image = Guest
+        }
+
+        
         
         let request: Request = Request()
         

@@ -31,6 +31,10 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         
         ErrorLabel.numberOfLines = 3
         
+        IDInputField.placeholder = "IDを入力してください(英数字3~10字)"
+        PWInputField.placeholder = "パスワードを入力してください(英数字4~8字)"
+        PWReinputField.placeholder = "パスワードをもう一度入力してください(英数字4~8字)"
+        
         // Do any additional setup after loading the view.
     }
     
@@ -47,22 +51,9 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
     */
     @IBAction func TextFieldEditingDidBegin(sender: UITextField) {
         txtActiveField = sender
-        if(sender == IDInputField){
-            if(sender.text! == "IDを入力してください(英数字3~10字)"){
-                sender.text = ""
+        if(sender == PWInputField || sender == PWReinputField){
+            sender.secureTextEntry = true}
             }
-        }else if(sender == PWInputField){
-            sender.secureTextEntry = true
-            if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
-                sender.text = ""
-            }
-        }else if(sender == PWReinputField){
-            sender.secureTextEntry = true
-            if(sender.text! == "パスワードをもう一度入力してください(英数字4~8字)"){
-                sender.text = ""
-            }
-        }
-    }
     
     /*
     テキストが編集された際に呼ばれる.
@@ -89,30 +80,7 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         return false
     }
     
-    /*
-    編集終了時の処理
-    *パスワード入力方式設定
-    *if:なにも入力されていない
-    テキストフィールドに入力する項目表示
-    */
-    @IBAction func TextFieldEditingDidEnd(sender: UITextField) {
-        if(sender == IDInputField){
-            if(sender.text! == ""){
-                sender.text = "IDを入力してください(英数字3~10字)"
-            }
-        }else if(sender == PWInputField){
-            if(sender.text! == ""){
-                sender.secureTextEntry = false
-                sender.text = "パスワードを入力してください(英数字4~8字)"
-            }
-        }else if(sender == PWReinputField){
-            if(sender.text! == ""){
-                sender.secureTextEntry = false
-                sender.text = "パスワードをもう一度入力してください(英数字4~8字)"
-            }
-        }
-    }
-    
+   
     /*
     キーボード以外をタップするとキーボードを閉じる
     */
@@ -157,25 +125,50 @@ class AddNewAcountViewController: UIViewController, UITextFieldDelegate,UIScroll
         sc.contentOffset.y = 0
     }
     
-    
-    @IBAction func TapAddNewAccount(sender: UIButton) {
+    @IBOutlet var AddButton: SpringButton!
+    var AddFlag = (0,0)
+    @IBAction func TapAddNewAccount(sender: AnyObject) {
         
         let String_ID = IDInputField.text
         let String_PW = PWInputField.text
         let String_RePW = PWReinputField.text
         
-        //何も入力していない場合,英数字以外が入力されている場合
-        /*    if(String_ID == "IDを入力してください(英数字3~10字)"){
-        ErrorLabel.text = "IDを入力してください"
-        }else if(String_PW == "パスワードを入力してください(英数字4~8字)"){
-        ErrorLabel.text = "パスワードを入力してください"
-        }else if(String_RePW == "パスワードをもう一度入力してください(英数字4~8字)"){
-        ErrorLabel.text = "パスワードをもう一度入力してください"
-        }else if(String_ID ){
-        AddNewAccount();
-        }*/
         
-        AddNewAccountActivity(String_ID!, password: String_PW!,password_confirmation: String_RePW!);
+        //エラー処理
+        if String_ID!.characters.count >= 3{
+            AddFlag.0 =  1
+        }else{
+            AddFlag.0 = 0}
+        if String_PW!.characters.count >= 4 || String_RePW!.characters.count >= 4{
+            AddFlag.1 =  1
+        }else{
+            AddFlag.1 = 0}
+        
+        AddButton.animation = "shake"
+        switch AddFlag{
+        case(0,0):
+            ErrorLabel.text = "IDとパスワードが違います"
+            AddButton.animate()
+        case(1,0):
+            ErrorLabel.text = "パスワードが違います"
+            AddButton.animate()
+        case(0,1):
+            ErrorLabel.text = "IDが違います"
+            AddButton.animate()
+        case(1,1):
+            if String_PW == String_RePW{
+                ErrorLabel.text = ""
+                AddNewAccountActivity(String_ID!, password: String_PW!,password_confirmation: String_RePW!);
+            }else{
+                ErrorLabel.text = "パスワードが一致していません"
+                AddButton.animate()}
+        default:
+            ErrorLabel.text = "エラーが発生しました。"
+        }
+
+        
+        
+        
     }
     
     func AddNewAccountActivity(userid:String ,password:String, password_confirmation:String){

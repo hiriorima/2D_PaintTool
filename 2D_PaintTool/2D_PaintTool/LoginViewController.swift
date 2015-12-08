@@ -14,6 +14,7 @@ UITextFieldDelegate,UIScrollViewDelegate {
     @IBOutlet var IDInputField: UITextField!
     @IBOutlet var PWInputField: UITextField!
     @IBOutlet var sc: UIScrollView!
+    @IBOutlet var Error: UILabel!
     
     private var txtActiveField = UITextField()
     
@@ -37,6 +38,9 @@ UITextFieldDelegate,UIScrollViewDelegate {
             // code
         })
         
+        IDInputField.placeholder = "IDを入力してください(英数字3~10字)"
+        PWInputField.placeholder = "パスワードを入力してください(英数字4~8字)"
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,16 +57,8 @@ UITextFieldDelegate,UIScrollViewDelegate {
     */
     @IBAction func TextFieldEditingDidBegin(sender: UITextField) {
         txtActiveField = sender
-        if(sender == IDInputField){
-            if(sender.text! == "IDを入力してください(英数字3~10字)"){
-                sender.text = ""
-            }
-        }else if(sender == PWInputField){
-            sender.secureTextEntry = true
-            if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
-                sender.text = ""
-            }
-        }
+        if(sender == PWInputField){
+            sender.secureTextEntry = true}
     }
     
     
@@ -89,25 +85,6 @@ UITextFieldDelegate,UIScrollViewDelegate {
         }
         
         return false
-    }
-    
-    /*
-    編集終了時の処理
-    *パスワード入力方式設定
-    *if:なにも入力されていない
-    テキストフィールドに入力する項目表示
-    */
-    @IBAction func TextFieldEditingDidEnd(sender: UITextField) {
-        if(sender == IDInputField){
-            if(sender.text! == ""){
-                sender.text = "IDを入力してください(英数字3~10字)"
-            }
-        }else if(sender == PWInputField){
-            if(sender.text! == ""){
-                sender.secureTextEntry = false
-                sender.text = "パスワードを入力してください(英数字4~8字)"
-            }
-        }
     }
     
     
@@ -155,11 +132,41 @@ UITextFieldDelegate,UIScrollViewDelegate {
         sc.contentOffset.y = 0
     }
     
-    @IBAction func TapLoginButton(sender: UIButton) {
+    
+    @IBOutlet var LoginButton: SpringButton!
+     var LoginFlag = (0,0)
+    @IBAction func TapLoginButton(sender: AnyObject) {
         let String_ID = IDInputField.text
         let String_PW = PWInputField.text
         
-        LoginActivity(String_ID!, password: String_PW!)
+        //エラー処理
+        if String_ID!.characters.count >= 3{
+            LoginFlag.0 =  1
+        }else{
+            LoginFlag.0 = 0}
+        if String_PW?.characters.count >= 4 {
+            LoginFlag.1 =  1
+        }else{
+            LoginFlag.1 = 0}
+        
+        LoginButton.animation = "shake"
+        switch LoginFlag{
+        case(0,0):
+            Error.text = "IDとパスワードが違います"
+            LoginButton.animate()
+        case(1,0):
+            Error.text = "パスワードが違います"
+            LoginButton.animate()
+        case(0,1):
+            Error.text = "IDが違います"
+            LoginButton.animate()
+        case(1,1):
+            Error.text = ""
+            LoginActivity(String_ID!, password: String_PW!)
+        default:
+            Error.text = "エラーが発生しました。"
+        }
+        
         
     }
     
@@ -201,8 +208,11 @@ UITextFieldDelegate,UIScrollViewDelegate {
         if(login_flag){
             self.ScreenTransition(userid)
         }else{
-            //ToDo ログインできな〜〜〜い
-            print("ログインできませんでした")
+            //ToDo ログインできない
+           // print("ログインできませんでした")
+            Error.text = "IDまたはパスワードが違います"
+            LoginButton.animation = "shake"
+            LoginButton.animate()
         }
     }
     

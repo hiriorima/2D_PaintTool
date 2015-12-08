@@ -77,8 +77,10 @@ class SearchScreenController: UIViewController{
         CategoryButtonCollection.dataSource = self.categoryButtonConfig
         CategoryButtonCollection.delegate = self.categoryButtonConfig
         
+        appDelegate.viewController = self
     }
     
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -122,6 +124,19 @@ class SearchScreenController: UIViewController{
         // self.CategoryThumbnail.reloadData()
         
     }
+    
+    
+    func viewChange(){
+        let sv = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("selectGraphic")
+        
+        sv.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        
+        
+        // Viewの移動する.
+        self.presentViewController(sv, animated: true, completion: nil)
+
+    }
+    
     
     /*
     // MARK: - Navigation

@@ -48,6 +48,17 @@ class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDel
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         //Todo ここで画像データをデリゲートに投げて編集画面へ画面遷移する!!
+        let url = NSURL(string: items[indexPath.row]);
+        let data = NSData(contentsOfURL:url!)
+        let img = UIImage(data: data!);
+        
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        appDelegate.searchImg = img
+        
+        appDelegate.viewController?.viewChange()
+        
+
+        
         
     }
 }
