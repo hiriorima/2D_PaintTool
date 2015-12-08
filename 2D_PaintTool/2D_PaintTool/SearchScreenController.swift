@@ -9,10 +9,9 @@
 
 import UIKit
 
-class SearchScreenController: UIViewController{
+class SearchScreenController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate{
     
     var thumbnailConfig:ThumbnailConfig?
-    var categoryButtonConfig:CategoryButtonConfig?
     
     @IBOutlet weak var CategoryButtonCollection: UICollectionView!
     @IBOutlet weak var CategoryThumbnail: UICollectionView!
@@ -21,6 +20,16 @@ class SearchScreenController: UIViewController{
     
     let baseurl:String = "http://paint.fablabhakodate.org/imgshow?category="
     
+    let categoryImg:Array<String> =
+    ["character.png",
+        "plant.png",
+        "eat.png",
+        "human.png",
+        "animal.png",
+        "car.png",
+        "mark.png",
+        "etc.png"]
+
     
     //AppDelegateのインスタンスを取得
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -62,26 +71,18 @@ class SearchScreenController: UIViewController{
         self.thumbnailConfig = ThumbnailConfig(items: images_url, imgs_name: images_name)
         CategoryThumbnail.dataSource = self.thumbnailConfig
         CategoryThumbnail.delegate = self.thumbnailConfig
-        
-        let categoryImg:Array<String> =
-        ["character.png",
-            "plant.png",
-            "eat.png",
-            "human.png",
-            "animal.png",
-            "car.png",
-            "mark.png",
-            "etc.png"]
-        
-        self.categoryButtonConfig = CategoryButtonConfig(items: categoryImg)
-        CategoryButtonCollection.dataSource = self.categoryButtonConfig
-        CategoryButtonCollection.delegate = self.categoryButtonConfig
-        
+    
+        CategoryButtonCollection.dataSource = self
+        CategoryButtonCollection.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func ReloadButton(sender: UIButton) {
+        Reload()
     }
     
     func Reload(){
@@ -119,9 +120,63 @@ class SearchScreenController: UIViewController{
         
         self.thumbnailConfig = ThumbnailConfig(items: images_url, imgs_name: images_name)
         
-        // self.CategoryThumbnail.reloadData()
-        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.CategoryThumbnail.reloadData()
+            self.CategoryThumbnail.dataSource = self.thumbnailConfig
+            self.CategoryThumbnail.delegate = self.thumbnailConfig
+        })
     }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell:CategoryButtonCell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryButtonCell", forIndexPath: indexPath) as! CategoryButtonCell
+        
+        let img = UIImage(named: categoryImg[indexPath.row]);
+        
+        // set Name
+        cell.CategoryButtonImg.image = img
+        cell.backgroundColor = UIColor.greenColor()
+        
+        return cell
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8;
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        switch categoryImg[indexPath.row]{
+        case "character.png":
+            appDelegate.category_number = "0"
+        case "plant.png":
+            appDelegate.category_number = "1"
+        case "eat.png":
+            appDelegate.category_number = "2"
+        case "human.png":
+            appDelegate.category_number = "3"
+        case "animal.png":
+            appDelegate.category_number = "4"
+        case "car.png":
+            appDelegate.category_number = "5"
+        case "mark.png":
+            appDelegate.category_number = "6"
+        case "etc.png":
+            appDelegate.category_number = "7"
+        default:
+            break
+        }
+        
+        Reload()
+    }
+
     
     /*
     // MARK: - Navigation

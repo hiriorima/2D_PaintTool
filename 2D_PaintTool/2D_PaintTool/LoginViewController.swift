@@ -53,7 +53,7 @@ UITextFieldDelegate,UIScrollViewDelegate {
     */
     @IBAction func TextFieldEditingDidBegin(sender: UITextField) {
         txtActiveField = sender
-        if(sender == IDInputField){
+    /*    if(sender == IDInputField){
             if(sender.text! == "IDを入力してください(英数字3~10字)"){
                 sender.text = ""
             }
@@ -62,7 +62,7 @@ UITextFieldDelegate,UIScrollViewDelegate {
             if(sender.text! == "パスワードを入力してください(英数字4~8字)"){
                 sender.text = ""
             }
-        }
+        }*/
     }
     
     
