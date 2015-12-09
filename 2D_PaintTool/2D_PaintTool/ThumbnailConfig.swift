@@ -57,8 +57,6 @@ class ThumbnailConfig: NSObject, UICollectionViewDataSource, UICollectionViewDel
         
         appDelegate.viewController?.viewChange()
         
-
-        
         
     }
 }

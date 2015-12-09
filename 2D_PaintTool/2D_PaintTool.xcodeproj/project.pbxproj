@@ -15,7 +15,6 @@
 		0DF5662B1BE3596C00D0EE2E /* _D_PaintToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF5662A1BE3596C00D0EE2E /* _D_PaintToolUITests.swift */; };
 		0DF8CBAD1C156E490058905C /* CustomThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8CBA91C156E490058905C /* CustomThumbnailCell.swift */; };
 		0DF8CBAE1C156E490058905C /* ThumbnailConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8CBAA1C156E490058905C /* ThumbnailConfig.swift */; };
-		0DF8CBAF1C156E490058905C /* CategoryButtonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8CBAB1C156E490058905C /* CategoryButtonConfig.swift */; };
 		0DF8CBB01C156E490058905C /* CategoryButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF8CBAC1C156E490058905C /* CategoryButtonCell.swift */; };
 		20211B071BE39FEC0065E70F /* PaintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20211B061BE39FEC0065E70F /* PaintController.swift */; };
 		202B27AF1C075D3B003286B1 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B27911C075D3B003286B1 /* AsyncButton.swift */; };
@@ -134,7 +133,6 @@
 		0DF5662C1BE3596C00D0EE2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DF8CBA91C156E490058905C /* CustomThumbnailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomThumbnailCell.swift; sourceTree = "<group>"; };
 		0DF8CBAA1C156E490058905C /* ThumbnailConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailConfig.swift; sourceTree = "<group>"; };
-		0DF8CBAB1C156E490058905C /* CategoryButtonConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryButtonConfig.swift; sourceTree = "<group>"; };
 		0DF8CBAC1C156E490058905C /* CategoryButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryButtonCell.swift; sourceTree = "<group>"; };
 		1EE39F2205BC60ABE1C692CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20211B061BE39FEC0065E70F /* PaintController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaintController.swift; path = ../PaintController.swift; sourceTree = "<group>"; };
@@ -290,7 +288,6 @@
 				0DF8CBA91C156E490058905C /* CustomThumbnailCell.swift */,
 				0DF8CBAA1C156E490058905C /* ThumbnailConfig.swift */,
 				2037EF141C1617C800E3A729 /* TitleScreenController.swift */,
-				0DF8CBAB1C156E490058905C /* CategoryButtonConfig.swift */,
 				0DF8CBAC1C156E490058905C /* CategoryButtonCell.swift */,
 				0DF566111BE3596C00D0EE2E /* Assets.xcassets */,
 				0DF566131BE3596C00D0EE2E /* LaunchScreen.storyboard */,
@@ -681,7 +678,6 @@
 				0DF8CBAE1C156E490058905C /* ThumbnailConfig.swift in Sources */,
 				20211B071BE39FEC0065E70F /* PaintController.swift in Sources */,
 				202B27BD1C075D3B003286B1 /* LoadingView.swift in Sources */,
-				0DF8CBAF1C156E490058905C /* CategoryButtonConfig.swift in Sources */,
 				207BAF231C0DB2F60023228F /* SearchScreenController.swift in Sources */,
 				202B27C11C075D3B003286B1 /* Spring.swift in Sources */,
 				202B27C61C075D3C003286B1 /* SpringTextField.swift in Sources */,

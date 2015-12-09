@@ -50,8 +50,10 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBOutlet var Tooltable: UITableView!
     let TImgArray: NSArray = ["Menu.png","Pen.png","Line.png","Ellipse.png","Rect.png","Eraser.png","Text.png"]
    
+    //選択領域の概形選択&リセットボタンの画像設定
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+
     
-        
     
     
     // 背景色の設定
@@ -108,9 +110,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     //画面が表示される直前//
      override func viewWillAppear(animated: Bool){
         
-        //選択領域の概形選択&リセットボタンの画像設定
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-          selectedGraphic = appDelegate.selectGraphic
+        selectedGraphic = appDelegate.selectGraphic
         
         switch selectedGraphic{
         case 1:
@@ -209,7 +209,9 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     // 戻る
     @IBAction func UnDo(sender: AnyObject) {
-        drawingView.undoLatestStep()}
+        drawingView.undoLatestStep()
+    
+    }
     
     // 進む
     @IBAction func ReDo(sender: AnyObject) {
@@ -397,7 +399,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     @IBAction func SavePost(sender: AnyObject) {
         PostTitle = TitleField.text!
-        let UserID:String = "testA"
+        let UserID:String = appDelegate.user_id!
         self.view.endEditing(true);
         
         //エラー処理

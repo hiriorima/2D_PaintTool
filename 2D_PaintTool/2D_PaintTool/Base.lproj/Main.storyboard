@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="EPQ-bX-4Tx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="EPQ-bX-4Tx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--Select Graphic Controller-->
@@ -995,7 +995,9 @@
                     <connections>
                         <outlet property="CategoryButtonCollection" destination="R10-9H-K7c" id="OA2-eq-eZJ"/>
                         <outlet property="CategoryThumbnail" destination="F3J-mH-Gui" id="y81-eK-xAO"/>
+                        <outlet property="categoryName" destination="kS3-c8-NGD" id="knd-Ud-nfz"/>
                         <outlet property="homeButton" destination="9xc-EN-yP1" id="6bT-fd-gPJ"/>
+                        <outlet property="selectCategoryImg" destination="0Gv-JA-qLR" id="kmr-fG-FUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mI-7L-XzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
