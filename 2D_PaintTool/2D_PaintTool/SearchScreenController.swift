@@ -39,6 +39,7 @@ class SearchScreenController: UIViewController,UICollectionViewDataSource, UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate.viewController = self
         
         var finish_flag: Bool = false
         
