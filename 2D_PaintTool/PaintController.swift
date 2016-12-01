@@ -98,7 +98,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
         myToolBar.tintColor = UIColor.whiteColor()
         
         //ToolBarを閉じるボタンを追加
-        let myToolBarButton = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: "onClick:")
+        let myToolBarButton = UIBarButtonItem(title: "Close", style: .Plain, target: self, action: #selector(PaintController.onClick(_:)))
         myToolBarButton.tag = 1
         myToolBar.items = [myToolBarButton]
         
@@ -448,7 +448,7 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             // バッファを解放。
             UIGraphicsEndImageContext()
             // PNGフォーマットのNSDataをUIImageから作成。
-                PostImg = Image2String(nonLayerImage)!
+                PostImg = Image2String(nonLayerImage!)!
             case 2:
                 PostImg = Image2String(drawingView.image)!
             case 3:
@@ -580,8 +580,8 @@ class PaintController: UIViewController, UITableViewDataSource, UITableViewDeleg
             CGImageGetBitsPerComponent(maskImgre),
             CGImageGetBitsPerPixel(maskImgre),
             CGImageGetBytesPerRow(maskImgre),
-            CGImageGetDataProvider(maskImgre),nil,false)
-        let maskedImageCG: CGImage = CGImageCreateWithMask(Img.CGImage, mask)!
+            CGImageGetDataProvider(maskImgre)!,nil,false)
+        let maskedImageCG: CGImage = CGImageCreateWithMask(Img.CGImage!, mask!)!
         let maskedImage = UIImage(CGImage: maskedImageCG)
         return maskedImage
     }
