@@ -77,7 +77,7 @@ UITextFieldDelegate,UIScrollViewDelegate {
         }
         
         // 入力済みの文字と入力された文字を合わせて取得.
-        var str = textField.text! + string
+        let str = textField.text! + string
         
         // 文字数がmaxLength以下ならtrueを返す.
         if str.characters.count < maxLength {
@@ -111,8 +111,8 @@ UITextFieldDelegate,UIScrollViewDelegate {
         super.viewWillAppear(animated)
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillShowNotification(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillHideNotification(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func handleKeyboardWillShowNotification(notification: NSNotification) {
@@ -120,7 +120,7 @@ UITextFieldDelegate,UIScrollViewDelegate {
         let userInfo = notification.userInfo!
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
-        var txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height + 8.0
+        let txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height + 8.0
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
         
         if txtLimit >= kbdLimit {

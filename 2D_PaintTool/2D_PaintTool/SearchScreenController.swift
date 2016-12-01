@@ -56,7 +56,9 @@ class SearchScreenController: UIViewController,UICollectionViewDataSource, UICol
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData((data)!, options: .MutableContainers) as! NSArray
                 
-                for ( var i = 0, n = json.count ; i < n ; i++ ) {
+                
+                
+                    for i in 0 ..< json.count{
                     let dictionary  = json[i]
                     images_url.append(dictionary["filedata"] as! String)
                     images_name.append(dictionary["title"] as! String)
@@ -102,7 +104,7 @@ class SearchScreenController: UIViewController,UICollectionViewDataSource, UICol
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData((data)!, options: .MutableContainers) as! NSArray
                 
-                for ( var i = 0, n = json.count ; i < n ; i++ ) {
+                    for i in 0 ..< json.count{
                     let dictionary  = json[i]
                     images_url.append(dictionary["filedata"] as! String)
                     images_name.append(dictionary["title"] as! String)
